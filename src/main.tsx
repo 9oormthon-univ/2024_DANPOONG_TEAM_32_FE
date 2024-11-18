@@ -7,10 +7,21 @@ import queryClient from '@api/queryClient.ts/queryClient.ts';
 import './index.css';
 import App from './App.tsx';
 
-createRoot(document.getElementById('root')!).render(
-	<QueryClientProvider client={queryClient}>
-		<BrowserRouter basename="/">
-			<App />
-		</BrowserRouter>
-	</QueryClientProvider>,
-);
+async function enableMocking() {
+	if (import.meta.env.VITE_NODE_ENV !== 'development') {
+		return;
+	}
+
+	const { worker } = await import('@mocks/browser.ts');
+	return worker.start();
+}
+
+enableMocking().then(() => {
+	createRoot(document.getElementById('root')!).render(
+		<QueryClientProvider client={queryClient}>
+			<BrowserRouter basename="/">
+				<App />
+			</BrowserRouter>
+		</QueryClientProvider>,
+	);
+});

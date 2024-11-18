@@ -16,4 +16,7 @@ export class HttpInterface {
 	// async getStyles(params: any) {
 	// 	return this.apiClient.get('style/filter', { searchParams: params });
 	// }
+	async getMockData() {
+		return this.apiClient.get('data');
+	}
 }

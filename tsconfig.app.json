@@ -33,6 +33,7 @@
 			"@constants/*": ["src/constants/*"],
 			"@hooks/*": ["src/hooks/*"],
 			"@layout/*": ["src/layout/*"],
+			"@mocks/*": ["src/mocks/*"],
 			"@pages/*": ["src/pages/*"],
 			"@routes/*": ["src/routes/*"],
 			"@stores/*": ["src/stores/*"],
