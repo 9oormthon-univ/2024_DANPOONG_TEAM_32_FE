@@ -23,7 +23,22 @@
 		"noUncheckedSideEffectImports": true,
 
 		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+
+		"baseUrl": ".",
+		"paths": {
+			"@api/*": ["src/api/*"],
+			"@assets/*": ["src/assets/*"],
+			"@components/*": ["src/components/*"],
+			"@constants/*": ["src/constants/*"],
+			"@hooks/*": ["src/hooks/*"],
+			"@layout/*": ["src/layout/*"],
+			"@pages/*": ["src/pages/*"],
+			"@routes/*": ["src/routes/*"],
+			"@stores/*": ["src/stores/*"],
+			"@types/*": ["src/types/*"],
+			"@utils/*": ["src/utils/*"]
+		}
 	},
 	"include": ["src", "src/svg.d.ts"]
 }
