@@ -1,12 +1,15 @@
+import logo from '@assets/images/logo.png';
+
 export default function Header() {
 	return (
-		<header className="sticky top-0 z-50 flex items-center justify-between bg-white px-4 py-2 shadow-md">
+		<header className="sticky top-0 z-50 flex items-center justify-between bg-white px-4 py-2 shadow-md h-15">
 			{/* 왼쪽 타이틀 영역 */}
-			<div className="flex items-center gap-2">
-				<span className="text-lg font-bold text-blue-700">온청</span>
+			<div className="flex items-center gap-2 ml-3">
+				{/* <span className="text-lg font-bold text-blue-700">온청</span>
 				<div className="relative">
 					<div className="absolute w-2 h-2 bg-blue-300 rounded-full top-0 -right-2 animate-bounce"></div>
-				</div>
+				</div> */}
+				<img className="w-[35px] h-[35px]" src={logo} alt="" />
 			</div>
 
 			{/* 오른쪽 날짜 영역 */}
