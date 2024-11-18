@@ -1,0 +1,16 @@
+{
+	"printWidth": 120,
+	"tabWidth": 2,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": true,
+	"quoteProps": "consistent",
+	"bracketSpacing": true,
+	"endOfLine": "auto",
+	"arrowParens": "always",
+	"trailingComma": "all",
+	"jsxBracketSameLine": true,
+	"prettier.singleQuote": true,
+	"prettier.jsxSingleQuote": true,
+	"prettier.embeddedLanguageFormatting": "auto"
+}
