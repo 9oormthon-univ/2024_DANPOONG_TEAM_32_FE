@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import { debounce } from 'lodash';
-import useKakaoLoader from './hooks/useKakaoLoader';
-import IconRefresh from './assets/svg/refresh.svg?react';
-import IconMyLocation from './assets/svg/my-location.svg?react';
 
-export default function KakaoMap() {
+import useKakaoLoader from '@hooks/useKakaoLoader';
+
+// import IconRefresh from './assets/svg/refresh.svg?react';
+import IconMyLocation from '@assets/svg/my-location.svg?react';
+
+export default function YouthMap() {
 	useKakaoLoader();
 	const [center, setCenter] = useState({ lat: 33.450701, lng: 126.570667 });
 	const [position, setPosition] = useState({ lat: 33.450701, lng: 126.570667 });

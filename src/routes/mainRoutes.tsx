@@ -1,6 +1,6 @@
 import MainLayout from '@layout/mainLayout';
 import Home from '@pages/home';
-import KakaoMap from 'src/Map';
+import YouthMap from '@pages/youthMap';
 
 const mainRoutes = {
 	path: '/',
@@ -11,8 +11,8 @@ const mainRoutes = {
 			element: <Home />,
 		},
 		{
-			path: '/map',
-			element: <KakaoMap />,
+			path: '/youth-map',
+			element: <YouthMap />,
 		},
 	],
 };
