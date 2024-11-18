@@ -1,6 +1,6 @@
 export default function Home() {
 	return (
-		<div className="h-[10000px]">
+		<div className="h-full w-full">
 			<h1>Home</h1>
 		</div>
 	);
