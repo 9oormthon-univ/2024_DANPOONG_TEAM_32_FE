@@ -8,7 +8,8 @@ import IconDictionaryActive from '@assets/svg/dictionary-active.svg?react';
 import IconDictionaryInactive from '@assets/svg/dictionary-inactive.svg?react';
 import IconMyPageActive from '@assets/svg/my-page-active.svg?react';
 import IconMyPageInactive from '@assets/svg/my-page-inactive.svg?react';
-import IconYouthMap from '@assets/svg/youth-map.svg?react';
+import IconYouthMapActive from '@assets/svg/youth-map-active.svg?react';
+import IconYouthMapInactive from '@assets/svg/youth-map-inactive.svg?react';
 
 export default function Footer() {
 	const { pathname } = useLocation();
@@ -33,9 +34,9 @@ export default function Footer() {
 				</Link>
 				<div>
 					<Link to={'/youth-map'} className="">
-						<div className="rounded-full w-20 h-20 shadow-lg absolute top-[-45%] left-[50%] translate-x-[-50%]">
+						<div className="rounded-full w-20 h-20 absolute top-[-45%] left-[50%] translate-x-[-50%]">
 							<div className="flex items-center justify-center">
-								<IconYouthMap />
+								{pathname === '/youth-map' ? <IconYouthMapActive /> : <IconYouthMapInactive />}
 							</div>
 						</div>
 					</Link>
