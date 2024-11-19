@@ -12,8 +12,16 @@ const mainRoutes = {
 			element: <Home />,
 		},
 		{
+			path: '/welfare-card',
+			// element: <WelfareCard/>
+		},
+		{
 			path: '/youth-map',
 			element: <YouthMap />,
+		},
+		{
+			path: '/dictionary',
+			// element: <Dictionary/>
 		},
 		{
 			path: '/my-page',
