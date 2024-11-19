@@ -1,7 +1,6 @@
 import { useKakaoLoader as useKakaoLoaderOrigin } from 'react-kakao-maps-sdk';
 
 export default function useKakaoLoader() {
-	console.log(import.meta.env.VITE_KAKAOMAP_KEY);
 	useKakaoLoaderOrigin({
 		/**
 		 * ※주의※ appkey의 경우 본인의 appkey를 사용하셔야 합니다.

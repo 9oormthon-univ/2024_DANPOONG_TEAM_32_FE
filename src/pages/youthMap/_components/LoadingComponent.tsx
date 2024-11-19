@@ -1,22 +1,37 @@
 import { useRegionStore } from '@stores/useRegionStore';
 import { checkSiDo } from '@utils/checkSiDo';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useFetchKakaoAPI } from '../_hooks/useFetchKakaoAPI';
 
 export default function LoadingScreen() {
 	const navigate = useNavigate();
 	const { selectedRegion, selectedSubRegion } = useRegionStore();
-
-	console.log('selectedRegion', selectedRegion);
-	console.log('selectedSubRegion', selectedSubRegion);
+	const fetchKakaoAPI = useFetchKakaoAPI(checkSiDo(selectedRegion) + ' ' + selectedSubRegion); // Fetch API
+	const [loading, setLoading] = useState(true); // Loading 상태 관리
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			navigate('/youth-map/map', { replace: true }); // 지도 화면으로 이동
-		}, 2000);
+		// Kakao API Fetch 실행 및 완료 시 페이지 이동
+		const fetchData = async () => {
+			const startTime = Date.now(); // 시작 시간 기록
 
-		return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
-	}, [navigate]);
+			try {
+				await fetchKakaoAPI(); // Fetch가 완료될 때까지 대기
+			} catch (error) {
+				console.error('Failed to fetch Kakao API:', error);
+			} finally {
+				// 최소 2초가 지나도록 대기
+				const elapsedTime = Date.now() - startTime;
+				const remainingTime = Math.max(2000 - elapsedTime, 0); // 최소 2초 유지
+				setTimeout(() => {
+					setLoading(false); // Loading 상태 종료
+					navigate('/youth-map/map', { replace: true }); // Fetch 완료 후 이동
+				}, remainingTime);
+			}
+		};
+
+		fetchData();
+	}, [fetchKakaoAPI, navigate]);
 
 	return (
 		<div className="flex flex-col items-center justify-center h-full bg-white px-4">
@@ -29,7 +44,7 @@ export default function LoadingScreen() {
 				</h2>
 				<h2 className="text-3xl text-black">이동하고 있어요.</h2>
 			</div>
-			<Spinner />
+			{loading && <Spinner />} {/* Fetch 중일 때 Spinner 표시 */}
 		</div>
 	);
 }

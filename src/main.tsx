@@ -16,12 +16,12 @@ async function enableMocking() {
 	return worker.start();
 }
 
-enableMocking().then(() => {
-	createRoot(document.getElementById('root')!).render(
-		<QueryClientProvider client={queryClient}>
-			<BrowserRouter basename="/">
-				<App />
-			</BrowserRouter>
-		</QueryClientProvider>,
-	);
-});
+// enableMocking().then(() => {
+createRoot(document.getElementById('root')!).render(
+	<QueryClientProvider client={queryClient}>
+		<BrowserRouter basename="/">
+			<App />
+		</BrowserRouter>
+	</QueryClientProvider>,
+);
+// });

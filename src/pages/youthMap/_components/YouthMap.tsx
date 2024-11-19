@@ -6,22 +6,27 @@ import useKakaoLoader from '@hooks/useKakaoLoader';
 
 // import IconRefresh from './assets/svg/refresh.svg?react';
 import IconMyLocation from '@assets/svg/my-location.svg?react';
+import useMapStore from '@stores/useMapStore';
 
 export default function YouthMap() {
 	useKakaoLoader();
-	const [center, setCenter] = useState({ lat: 33.450701, lng: 126.570667 });
-	const [position, setPosition] = useState({ lat: 33.450701, lng: 126.570667 });
-	const [searchQuery, setSearchQuery] = useState('');
+
+	const { position, center, ne, sw, setPosition, setCenter, setNE, setSW } = useMapStore();
 
 	useEffect(() => {
-		navigator.geolocation.getCurrentPosition((pos) => {
-			setCenter({ lat: pos.coords.latitude, lng: pos.coords.longitude });
-		});
+		// navigator.geolocation.getCurrentPosition((pos) => {
+		// 	setCenter({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+		// });
 
 		navigator.geolocation.watchPosition((pos) => {
 			setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude });
 		});
 	}, []);
+
+	// TODO: React Query 기반으로 ne, sw 변경 시 API 호출
+	// useEffect(() => {
+	// 	console.log('change', ne, sw);
+	// }, [ne, sw]);
 
 	const setCenterToCurrentPosition = () => {
 		setCenter(position);
@@ -31,9 +36,19 @@ export default function YouthMap() {
 		() =>
 			debounce((map: kakao.maps.Map) => {
 				console.log(map.getCenter());
+				console.log(map.getBounds().getNorthEast());
+				console.log(map.getBounds().getSouthWest());
 				setCenter({
 					lat: map.getCenter().getLat(),
 					lng: map.getCenter().getLng(),
+				});
+				setNE({
+					lat: map.getBounds().getNorthEast().getLat(),
+					lng: map.getBounds().getNorthEast().getLng(),
+				});
+				setSW({
+					lat: map.getBounds().getSouthWest().getLat(),
+					lng: map.getBounds().getSouthWest().getLng(),
 				});
 			}, 500),
 		[],
