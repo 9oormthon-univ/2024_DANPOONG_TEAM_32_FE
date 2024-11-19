@@ -40,42 +40,25 @@ export default function YouthMap() {
 	);
 
 	return (
-		<div className="relative w-full h-full">
-			{/* 검색창 */}
-			{/* <div className="absolute top-4 left-1/2 transform -translate-x-1/2 h-12 w-10/12 z-10 bg-white rounded-lg shadow-md p-2 flex items-center">
-				<input
-					type="text"
-					placeholder="Search location..."
-					value={searchQuery}
-					onChange={(e) => setSearchQuery(e.target.value)}
-					className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-				/>
-				<button
-					className="ml-2 px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-					onClick={() => {
-						// 검색 이벤트 처리 (추후 추가 가능)
-						alert(`Searching for: ${searchQuery}`);
-					}}>
-					Search
-				</button>
-			</div> */}
-
+		<div className="relative w-full h-full flex justify-center">
 			{/* 지도 */}
-			<Map id="map" className="w-full h-full" center={center} level={3} onCenterChanged={updateCenterWhenMapDragged}>
-				{/* 지도에 표시할 내 위치 마커 */}
-				<MapMarker position={position} />
-			</Map>
+			<div className="relative w-full h-full max-w-[980px]">
+				<Map id="map" className="w-full h-full" center={center} level={3} onCenterChanged={updateCenterWhenMapDragged}>
+					{/* 지도에 표시할 내 위치 마커 */}
+					<MapMarker position={position} />
+				</Map>
 
-			{/* 버튼 */}
-			<div className="flex flex-col gap-[10px] absolute z-[1] bottom-20 left-0 p-[10px]">
-				{/* <button className="flex justify-center items-center cursor-pointer rounded-full w-[45px] h-[45px] bg-white shadow-[0_0_8px_#00000025]">
+				{/* 버튼 */}
+				<div className="flex flex-col gap-[10px] absolute z-[1] bottom-20 left-0 p-[10px]">
+					{/* <button className="flex justify-center items-center cursor-pointer rounded-full w-[45px] h-[45px] bg-white shadow-[0_0_8px_#00000025]">
 					<IconRefresh width={25} height={25} />
 				</button> */}
-				<button
-					className="flex justify-center items-center cursor-pointer rounded-full w-[45px] h-[45px] bg-white shadow-[0_0_8px_#00000025]"
-					onClick={setCenterToCurrentPosition}>
-					<IconMyLocation width={25} height={25} />
-				</button>
+					<button
+						className="flex justify-center items-center cursor-pointer rounded-full w-[45px] h-[45px] bg-white shadow-[0_0_8px_#00000025]"
+						onClick={setCenterToCurrentPosition}>
+						<IconMyLocation width={25} height={25} />
+					</button>
+				</div>
 			</div>
 		</div>
 	);
