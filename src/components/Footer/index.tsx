@@ -18,7 +18,7 @@ export default function Footer() {
 		<nav className="fixed bottom-0 z-50 left-0 w-full bg-white shadow-t-md">
 			{/* 각 네비게이션 아이콘 */}
 			<div className="max-w-[780px] flex justify-between items-center mx-auto px-4 py-2 grid grid-cols-5 gap-4">
-				<Link to={'/'} className="flex flex-col items-center text-gray-400 hover:text-blue-600 focus:text-blue-600">
+				<Link to={'/'} className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/' && 'text-theme-main'}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/' ? <IconHomeActive /> : <IconHomeInactive />}
 					</div>
@@ -26,14 +26,14 @@ export default function Footer() {
 				</Link>
 				<Link
 					to={'/welfare-card'}
-					className="flex flex-col items-center text-gray-400 hover:text-blue-600 focus:text-blue-600">
+					className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/welfare-card' && 'text-theme-main'}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/welfare-card' ? <IconWelfareCardActive /> : <IconWelfareCardInactive />}
 					</div>
 					<span className="text-xs">복지카드</span>
 				</Link>
 				<div>
-					<Link to={'/youth-map'} className="">
+					<Link to={'/youth-map'}>
 						<div className="rounded-full w-20 h-20 absolute top-[-45%] left-[50%] translate-x-[-50%]">
 							<div className="flex items-center justify-center">
 								{pathname === '/youth-map' ? <IconYouthMapActive /> : <IconYouthMapInactive />}
@@ -43,7 +43,7 @@ export default function Footer() {
 				</div>
 				<Link
 					to={'/dictionary'}
-					className="flex flex-col items-center text-gray-400 hover:text-blue-600 focus:text-blue-600">
+					className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/dictionary' && 'text-theme-main'}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/dictionary' ? <IconDictionaryActive /> : <IconDictionaryInactive />}
 					</div>
@@ -51,7 +51,7 @@ export default function Footer() {
 				</Link>
 				<Link
 					to={'/my-page'}
-					className="flex flex-col items-center text-gray-400 hover:text-blue-600 focus:text-blue-600">
+					className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/my-page' && 'text-theme-main'}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/my-page' ? <IconMyPageActive /> : <IconMyPageInactive />}
 					</div>
