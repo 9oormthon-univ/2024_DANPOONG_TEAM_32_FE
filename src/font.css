@@ -1,0 +1,17 @@
+@font-face {
+	font-family: Pretendard;
+	font-weight: 400;
+	src: local('Pretendard Regular'), url('/src/assets/fonts/woff/Pretendard-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: Pretendard;
+	font-weight: 500;
+	src: local('Pretendard Medium'), url('/src/assets/fonts/woff/Pretendard-Medium.woff') format('woff');
+}
+
+@font-face {
+	font-family: Pretendard;
+	font-weight: 700;
+	src: local('Pretendard Bold'), url('/src/assets/fonts/woff/Pretendard-Bold.woff') format('woff');
+}
