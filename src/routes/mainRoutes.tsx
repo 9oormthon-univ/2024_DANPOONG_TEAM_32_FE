@@ -1,6 +1,7 @@
 import MainLayout from '@layout/mainLayout';
 import Home from '@pages/home';
-import YouthMap from '@pages/youthMap';
+import YouthMapContainer from '@pages/youthMap';
+import youthmapRoutes from '@routes/youthmapRoutes';
 
 const mainRoutes = {
 	path: '/',
@@ -12,7 +13,8 @@ const mainRoutes = {
 		},
 		{
 			path: '/youth-map',
-			element: <YouthMap />,
+			element: <YouthMapContainer />,
+			children: youthmapRoutes,
 		},
 	],
 };
