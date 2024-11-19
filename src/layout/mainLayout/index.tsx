@@ -3,11 +3,24 @@ import { Outlet } from 'react-router-dom';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 
+// export default function MainLayout() {
+// 	return (
+// 		<main className="flex flex-col h-screen">
+// 			<Header />
+// 			<div className="flex-1 overflow-y-auto max-w-[980px] mx-auto pb-[60px]">
+// 				<Outlet />
+// 			</div>
+// 			<Footer />
+// 		</main>
+// 	);
+// }
+
 export default function MainLayout() {
 	return (
 		<main className="flex flex-col h-screen">
 			<Header />
-			<div className="flex-1 overflow-y-auto pb-[60px]">
+			<div className="flex-1 overflow-y-auto max-w-[980px] w-full mx-auto pb-[60px]">
+				{/* Outlet은 유연한 공간을 제공 */}
 				<Outlet />
 			</div>
 			<Footer />
