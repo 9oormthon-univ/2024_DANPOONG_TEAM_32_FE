@@ -1,4 +1,5 @@
 import logo from '@assets/images/logo.png';
+import Calendar from '@components/Calendar';
 
 export default function Header() {
 	return (
@@ -11,9 +12,7 @@ export default function Header() {
 
 				{/* 오른쪽 날짜 영역 */}
 				<div className="flex items-center mr-3">
-					<div className="bg-gray-200 text-blue-700 font-semibold rounded-md px-2 py-1 flex items-center">
-						<span className="text-sm">17</span>
-					</div>
+					<Calendar />
 				</div>
 			</div>
 		</header>

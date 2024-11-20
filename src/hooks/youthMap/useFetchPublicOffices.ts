@@ -6,7 +6,7 @@ export const useFetchPublicOffices = (ne: { lat: number; lng: number }, sw: { la
 	const httpInterface = useNetwork((state) => state.httpInterface);
 
 	const { data, isLoading, isError } = useQuery({
-		queryKey: ['public-offices/nearby'],
+		queryKey: ['public-offices/nearby', ne, sw],
 		queryFn: () =>
 			httpInterface.getPublicOffices({
 				leftBottomLongitude: sw.lng,
