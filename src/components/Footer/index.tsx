@@ -16,7 +16,7 @@ export default function Footer() {
 	const { pathname } = useLocation();
 
 	return (
-		<nav className="fixed bottom-0 z-50 left-0 w-full bg-white shadow-t-md">
+		<nav className="fixed bottom-0 z-50 left-0 w-full bg-white shadow-t-md h-[68px]">
 			{/* 각 네비게이션 아이콘 */}
 			<div className="min-w-[375px] max-w-[780px] flex justify-between items-center mx-auto px-4 py-2 grid grid-cols-5 gap-4">
 				<button

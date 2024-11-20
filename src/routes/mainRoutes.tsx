@@ -2,8 +2,10 @@ import MainLayout from '@layout/mainLayout';
 import Home from '@pages/home';
 import YouthMapContainer from '@pages/youthMap';
 import youthmapRoutes from '@routes/youthmapRoutes';
+import DictionaryContainer from '@pages/dictionary';
+import dictionaryRoutes from '@routes/dictionaryRoutes';
 import MyPageContainer from '@pages/myPage';
-import mypageRoutes from './mypageRoutes';
+import mypageRoutes from '@routes/mypageRoutes';
 
 const mainRoutes = {
 	path: '/',
@@ -24,7 +26,8 @@ const mainRoutes = {
 		},
 		{
 			path: '/dictionary',
-			// element: <Dictionary/>
+			element: <DictionaryContainer />,
+			children: dictionaryRoutes,
 		},
 		{
 			path: '/my-page',
