@@ -6,6 +6,7 @@ import { regions } from '@constants/regions';
 import UnderlineText from '@components/UnderlineText';
 
 import IconMyLocation from '@assets/svg/prev.svg?react';
+import Button from '@components/Button';
 
 export default function RegionSelect() {
 	const navigate = useNavigate();
@@ -50,11 +51,11 @@ export default function RegionSelect() {
 						</button>
 					))}
 				</div>
-				<button
+				<Button
+					text="다음으로 넘어가기"
 					onClick={handleNext}
-					className="mt-20 w-[334px] h-[54px] py-3 px-6 bg-theme-main text-white rounded-lg font-bold text-lg shadow-md transition hover:bg-[#3A4E6F]">
-					다음으로 넘어가기
-				</button>
+					className="fixed bottom-5 left-1/2 transform -translate-x-1/2"
+				/>
 			</div>
 		</div>
 	);
