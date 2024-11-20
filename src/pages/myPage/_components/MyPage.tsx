@@ -1,12 +1,14 @@
+import { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import IconMan from '@assets/svg/man.svg?react';
 import IconStar from '@assets/svg/star.svg?react';
 import IconRecent from '@assets/svg/recent.svg?react';
 import IconMailbox from '@assets/svg/mailbox.svg?react';
 import IconWand from '@assets/svg/wand.svg?react';
 import IconKey from '@assets/svg/key.svg?react';
-import IconArrowLeft from '@assets/svg/arrow-left.svg?react';
-import { ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+import IconArrowRight from '@assets/svg/arrow-right.svg?react';
+import PageContainer from '@components/PageContainer';
 
 interface IconWrapperProps {
 	children: ReactNode;
@@ -21,7 +23,7 @@ export default function MyPage() {
 	const navigate = useNavigate();
 
 	return (
-		<div className="h-full w-full px-7">
+		<PageContainer>
 			<div className="flex flex-col items-center pt-10">
 				<div className="flex justify-center items-center m-2">
 					<IconMan />
@@ -56,10 +58,10 @@ export default function MyPage() {
 							<IconWrapper className="mr-6">
 								<IconMailbox />
 							</IconWrapper>
-							<div>공지</div>
+							<div className="font-bold">공지</div>
 						</div>
 						<IconWrapper>
-							<IconArrowLeft />
+							<IconArrowRight />
 						</IconWrapper>
 					</div>
 					<div
@@ -69,10 +71,10 @@ export default function MyPage() {
 							<IconWrapper className="mr-6">
 								<IconWand />
 							</IconWrapper>
-							<div>가이드북</div>
+							<div className="font-bold">가이드북</div>
 						</div>
 						<IconWrapper>
-							<IconArrowLeft />
+							<IconArrowRight />
 						</IconWrapper>
 					</div>
 					<div
@@ -82,14 +84,14 @@ export default function MyPage() {
 							<IconWrapper className="mr-6">
 								<IconKey />
 							</IconWrapper>
-							<div>개인정보 및 보안</div>
+							<div className="font-bold">개인정보 및 보안</div>
 						</div>
 						<IconWrapper>
-							<IconArrowLeft />
+							<IconArrowRight />
 						</IconWrapper>
 					</div>
 				</div>
 			</div>
-		</div>
+		</PageContainer>
 	);
 }

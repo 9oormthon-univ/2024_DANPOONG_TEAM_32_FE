@@ -2,10 +2,11 @@ import IconKey from '@assets/svg/key.svg?react';
 import IconMan from '@assets/svg/man.svg?react';
 import IconEditProfile from '@assets/svg/edit-profile.svg?react';
 import PageNavbar from '@components/PageNavbar';
+import PageContainer from '@components/PageContainer';
 
 export default function PrivacyAndSecurity() {
 	return (
-		<div className="w-full h-full px-7">
+		<PageContainer>
 			<PageNavbar icon={<IconKey />} title="개인정보 및 보안" />
 			<div className="flex flex-col items-center pt-10">
 				<div className="flex justify-center items-center m-2">
@@ -47,6 +48,6 @@ export default function PrivacyAndSecurity() {
 					<p className="text-[#A3ADB7] text-sm mt-4">- 복지 카드 발급 이후 일괄 삭제될 예정</p>
 				</div>
 			</div>
-		</div>
+		</PageContainer>
 	);
 }

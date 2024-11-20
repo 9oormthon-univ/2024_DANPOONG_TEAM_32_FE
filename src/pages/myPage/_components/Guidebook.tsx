@@ -1,9 +1,10 @@
 import IconWand from '@assets/svg/wand.svg?react';
+import PageContainer from '@components/PageContainer';
 import PageNavbar from '@components/PageNavbar';
 
 export default function GuideBook() {
 	return (
-		<div className="w-full h-full px-7">
+		<PageContainer>
 			<PageNavbar icon={<IconWand />} title="가이드북" />
 			<div className="flex flex-col pt-10">
 				<div className="text-xl font-bold pb-2">1. 복지 카드는 무엇인가요?</div>
@@ -23,6 +24,6 @@ export default function GuideBook() {
 				<div className="text-xl font-bold pb-2">3. 원클릭 신청도 되나요?</div>
 				<p>지역 관공서와 협업이 체결된 이후 신청까지 가능하도록 할 예정입니다. </p>
 			</div>
-		</div>
+		</PageContainer>
 	);
 }
