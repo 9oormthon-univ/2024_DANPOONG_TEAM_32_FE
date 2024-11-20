@@ -1,6 +1,6 @@
 import MyPage from '@pages/myPage/_components/MyPage';
 import Announcements from '@pages/myPage/_components/Announcements';
-import Guidebook from '@pages/myPage/_components/GuideBook';
+import Guidebook from '@pages/myPage/_components/Guidebook';
 import PrivacyAndSecurity from '@pages/myPage/_components/PrivacyAndSecurity';
 
 const mypageRoutes = [
