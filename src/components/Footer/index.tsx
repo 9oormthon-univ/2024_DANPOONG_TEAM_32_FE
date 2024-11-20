@@ -18,7 +18,9 @@ export default function Footer() {
 		<nav className="fixed bottom-0 z-50 left-0 w-full bg-white shadow-t-md">
 			{/* 각 네비게이션 아이콘 */}
 			<div className="max-w-[780px] flex justify-between items-center mx-auto px-4 py-2 grid grid-cols-5 gap-4">
-				<Link to={'/'} className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/' && 'text-theme-main'}`}>
+				<Link
+					to={'/'}
+					className={`flex flex-col items-center ${pathname === '/' ? 'text-theme-main' : 'text-theme-gray'}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/' ? <IconHomeActive /> : <IconHomeInactive />}
 					</div>
@@ -26,7 +28,9 @@ export default function Footer() {
 				</Link>
 				<Link
 					to={'/welfare-card'}
-					className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/welfare-card' && 'text-theme-main'}`}>
+					className={`flex flex-col items-center ${
+						pathname === '/welfare-card' ? 'text-theme-main' : 'text-theme-gray'
+					}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/welfare-card' ? <IconWelfareCardActive /> : <IconWelfareCardInactive />}
 					</div>
@@ -43,7 +47,9 @@ export default function Footer() {
 				</div>
 				<Link
 					to={'/dictionary'}
-					className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/dictionary' && 'text-theme-main'}`}>
+					className={`flex flex-col items-center ${
+						pathname === '/dictionary' ? 'text-theme-main' : 'text-theme-gray'
+					}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/dictionary' ? <IconDictionaryActive /> : <IconDictionaryInactive />}
 					</div>
@@ -51,7 +57,7 @@ export default function Footer() {
 				</Link>
 				<Link
 					to={'/my-page'}
-					className={`flex flex-col items-center text-[#D9D9D9] ${pathname === '/my-page' && 'text-theme-main'}`}>
+					className={`flex flex-col items-center ${pathname === '/my-page' ? 'text-theme-main' : 'text-theme-gray'}`}>
 					<div className="h-[36px] flex justify-center items-center">
 						{pathname === '/my-page' ? <IconMyPageActive /> : <IconMyPageInactive />}
 					</div>
