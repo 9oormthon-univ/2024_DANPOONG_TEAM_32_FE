@@ -2,7 +2,8 @@ import MainLayout from '@layout/mainLayout';
 import Home from '@pages/home';
 import YouthMapContainer from '@pages/youthMap';
 import youthmapRoutes from '@routes/youthmapRoutes';
-import MyPage from '@pages/myPage';
+import MyPageContainer from '@pages/myPage';
+import mypageRoutes from './mypageRoutes';
 
 const mainRoutes = {
 	path: '/',
@@ -27,7 +28,8 @@ const mainRoutes = {
 		},
 		{
 			path: '/my-page',
-			element: <MyPage />,
+			element: <MyPageContainer />,
+			children: mypageRoutes,
 		},
 	],
 };
