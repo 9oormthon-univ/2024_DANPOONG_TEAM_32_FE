@@ -1,5 +1,6 @@
 import useMapStore from '@stores/useMapStore';
 import ky from 'ky';
+import { useCallback } from 'react';
 
 export interface KakaoAPIResponseType {
 	documents: Array<{
@@ -24,20 +25,24 @@ export const useFetchKakaoAPI = (sido: string) => {
 
 	console.log(sido);
 
-	const fetchKakaoAPI = async () => {
-		const response: KakaoAPIResponseType = await ky
-			.get(`https://dapi.kakao.com/v2/local/search/address.json?query=${sido}`, {
-				headers: {
-					Authorization: `KakaoAK ${import.meta.env.VITE_API_KEY}`,
-				},
-			})
-			.json<KakaoAPIResponseType>(); // 응답 타입 지정
+	const fetchKakaoAPI = useCallback(async () => {
+		try {
+			const response: KakaoAPIResponseType = await ky
+				.get(`https://dapi.kakao.com/v2/local/search/address.json?query=${sido}`, {
+					headers: {
+						Authorization: `KakaoAK ${import.meta.env.VITE_API_KEY}`,
+					},
+				})
+				.json<KakaoAPIResponseType>(); // 응답 타입 지정
 
-		console.log(response);
-		const { x, y } = response.documents[0];
+			console.log(response);
+			const { x, y } = response.documents[0];
 
-		setCenter({ lat: parseFloat(y), lng: parseFloat(x) });
-	};
+			setCenter({ lat: parseFloat(y), lng: parseFloat(x) });
+		} catch (error) {
+			console.error('Failed to fetch Kakao API:', error);
+		}
+	}, [sido, setCenter]);
 
 	return fetchKakaoAPI;
 };
