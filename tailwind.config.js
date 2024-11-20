@@ -6,6 +6,15 @@ export default {
 			pre: ['Pretendard'],
 		},
 		extend: {
+			keyframes: {
+				fade: {
+					'0%, 39%, 100%': { opacity: 0 },
+					'40%': { opacity: 1 },
+				},
+			},
+			animation: {
+				fade: 'fade 1.2s infinite ease-in-out',
+			},
 			colors: {
 				theme: {
 					main: '#4B628A', // 메인 테마 색상
