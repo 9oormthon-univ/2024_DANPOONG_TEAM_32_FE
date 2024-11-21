@@ -1,4 +1,11 @@
-export const loadmapCategory = [
+import { IconName } from '@components/Icon';
+
+interface LoadmapCategory {
+	title: string;
+	items: { icon: IconName; title: string; bgColor: string }[];
+}
+
+export const loadmapCategory: LoadmapCategory[] = [
 	{
 		title: '미래를 위한 청춘 잔고 채우기',
 		items: [
