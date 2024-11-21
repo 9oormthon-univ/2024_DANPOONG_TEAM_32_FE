@@ -19,11 +19,11 @@ export default function Footer() {
 			{/* 각 네비게이션 아이콘 */}
 			<div className="min-w-[375px] max-w-[780px] flex justify-between items-center mx-auto px-4 py-2 grid grid-cols-5 gap-4">
 				<button
-					onClick={() => navigate('/')}
-					className={`flex flex-col items-center ${useMatch('/') ? 'text-theme-main' : 'text-theme-gray'}`}>
+					onClick={() => navigate('/home')}
+					className={`flex flex-col items-center ${useMatch('/home/*') ? 'text-theme-main' : 'text-theme-gray'}`}>
 					<div className="h-9 flex justify-center items-center">
 						{/* 홈 경로 추가될 경우 예외처리 */}
-						{useMatch('/') ? <IconHomeActive /> : <IconHomeInactive />}
+						{useMatch('/home/*') ? <IconHomeActive /> : <IconHomeInactive />}
 					</div>
 					<span className="text-xs">홈</span>
 				</button>
