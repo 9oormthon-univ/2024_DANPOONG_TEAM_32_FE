@@ -4,6 +4,7 @@ import HouseIcon from '@assets/svg/red-house-icon.svg?react';
 import TempleIcon from '@assets/svg/temple-icon.svg?react';
 import PhoneIcon from '@assets/svg/phone-icon.svg?react';
 import CommetIcon from '@assets/svg/comet-icon.svg?react';
+import CallIcon from '@assets/svg/call.svg?react';
 
 const iconMap = {
 	DollarIcon,
@@ -12,6 +13,7 @@ const iconMap = {
 	TempleIcon,
 	PhoneIcon,
 	CommetIcon,
+	CallIcon,
 	// Additional SVG mappings...
 } as const;
 

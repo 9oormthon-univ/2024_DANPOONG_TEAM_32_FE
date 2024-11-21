@@ -15,10 +15,10 @@ interface MapStoreType {
 const useMapStore = create<MapStoreType>()(
 	devtools(
 		(set) => ({
-			center: { lat: 37.5665, lng: 126.978 }, // 서울 시청
-			position: { lat: 37.5665, lng: 126.978 },
-			ne: { lat: 37.5755, lng: 126.988 },
-			sw: { lat: 37.5575, lng: 126.968 },
+			center: { lat: 0, lng: 0 }, // 서울 시청
+			position: { lat: 0, lng: 0 },
+			ne: { lat: 0, lng: 0 },
+			sw: { lat: 0, lng: 0 },
 			setCenter: (center: { lat: number; lng: number }) => set({ center }),
 			setPosition: (position: { lat: number; lng: number }) => set({ position }),
 			setNE: (ne: { lat: number; lng: number }) => set({ ne }),
