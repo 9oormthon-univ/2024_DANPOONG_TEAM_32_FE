@@ -7,6 +7,9 @@ export default {
 			tmon: ['TMONTium'],
 		},
 		extend: {
+			dropShadow: {
+				custom: '0px 0px 6px #B9E6E9',
+			},
 			keyframes: {
 				fade: {
 					'0%, 39%, 100%': { opacity: 0 },
