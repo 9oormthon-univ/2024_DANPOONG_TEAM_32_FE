@@ -4,6 +4,7 @@ export default {
 	theme: {
 		fontFamily: {
 			pre: ['Pretendard'],
+			tmon: ['TMONTium'],
 		},
 		extend: {
 			keyframes: {

@@ -16,16 +16,15 @@ export default function YouthMap() {
 	const { position, center, ne, sw, setPosition, setCenter, setNE, setSW } = useMapStore();
 	const { data, isLoading, isError } = useFetchPublicOffices(ne, sw);
 
+	const [selectedMarker, setSelectedMarker] = useState(null);
+	const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
+
 	useEffect(() => {
+		// 사용자 현재 위치 받아오기
 		navigator.geolocation.watchPosition((pos) => {
 			setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude });
 		});
 	}, []);
-
-	// TODO: React Query 기반으로 ne, sw 변경 시 API 호출
-	// useEffect(() => {
-	// 	console.log('change', ne, sw);
-	// }, [ne, sw]);
 
 	const setCenterToCurrentPosition = () => {
 		setCenter(position);
@@ -53,11 +52,20 @@ export default function YouthMap() {
 		[],
 	);
 
+	// const handleMarkerClick = (markData) => {
+	// 	setSelectedMarker(markData);
+	// 	setIsInfoWindowOpen(true);
+	// };
+
+	const closeInfoWindow = () => {
+		setIsInfoWindowOpen(false);
+	};
+
 	return (
 		<div className="relative w-full h-full flex justify-center">
 			{/* 지도 */}
 			<div className="relative w-full h-full max-w-[980px]">
-				<Map id="map" className="w-full h-full" center={center} level={3} onCenterChanged={updateCenterWhenMapDragged}>
+				<Map id="map" className="w-full h-full" center={center} level={6} onCenterChanged={updateCenterWhenMapDragged}>
 					{/* 지도에 표시할 내 위치 마커 */}
 					<MapMarker
 						position={position}
@@ -66,6 +74,14 @@ export default function YouthMap() {
 							size: { width: 35.75, height: 45.5 },
 						}}
 					/>
+
+					{/* {data?.map((item) => (
+						<MapMarker
+							key={item.id}
+							position={{ lat: item.latitude, lng: item.longitude }}
+							onClick={() => handleMarkerClick(item)}
+						/>
+					))} */}
 				</Map>
 
 				{/* 버튼 */}
@@ -77,6 +93,8 @@ export default function YouthMap() {
 					</button>
 				</div>
 			</div>
+			{/* 하단 패널 */}
+			{isInfoWindowOpen && selectedMarker}
 		</div>
 	);
 }
