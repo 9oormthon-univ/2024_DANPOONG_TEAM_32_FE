@@ -16,7 +16,13 @@ export class HttpInterface {
 	// async getStyles(params: any) {
 	// 	return this.apiClient.get('style/filter', { searchParams: params });
 	// }
-	async getMockData() {
-		return this.apiClient.get('data');
+
+	async getPublicOffices(params: {
+		leftBottomLongitude: number;
+		leftBottomLatitude: number;
+		rightTopLongitude: number;
+		rightTopLatitude: number;
+	}) {
+		return this.apiClient.get('public-offices/nearby', { searchParams: params });
 	}
 }

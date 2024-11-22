@@ -12,7 +12,8 @@ export class Http implements ICommunication {
 
 	constructor() {
 		this.httpClient = ky.create({
-			// prefixUrl: 'https://api.400cc.araas.ai', // Base URL
+			// prefixUrl: 'https://localhost:3000/api', // Base URL
+			prefixUrl: 'http://www.youthmap.site:8080/api',
 			headers: {
 				'Content-Type': 'application/json',
 			},

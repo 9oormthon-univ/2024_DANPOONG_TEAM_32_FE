@@ -1,12 +1,13 @@
-import { useFetchData } from './useFetchData';
+import PageContainer from '@components/PageContainer';
+// import SearchBar from '@pages/dictionary/_components/SearchBar'; // 필요 시 활성화
+import LoadmapCard from './_components/LoadmapCard';
+import WelfareCard from './_components/WelfareCard';
+import { Outlet } from 'react-router-dom';
 
 export default function Home() {
-	const { data, isLoading, isError } = useFetchData();
-	console.log(data, isLoading, isError);
-
 	return (
-		<div className="h-full w-full">
-			<h1>Home</h1>
-		</div>
+		<PageContainer>
+			<Outlet />
+		</PageContainer>
 	);
 }
