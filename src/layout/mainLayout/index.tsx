@@ -20,7 +20,7 @@ export default function MainLayout() {
 	// 네비게이션 메뉴 순서 정의
 	const navOrder = {
 		'/home': 0,
-		'/youth-policy': 1,
+		'/welfare-card': 1,
 		'/dictionary': 2,
 		'/my-page': 3,
 	};
