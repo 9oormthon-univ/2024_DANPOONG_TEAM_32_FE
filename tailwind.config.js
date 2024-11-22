@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+import tailwindScrollbarHide from 'tailwind-scrollbar-hide';
+
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		fontFamily: {
 			pre: ['Pretendard'],
 			tmon: ['TMONTium'],
+			yangjin: ['Yangjin'],
 		},
 		extend: {
 			dropShadow: {
@@ -30,5 +33,5 @@ export default {
 			},
 		},
 	},
-	plugins: [require('tailwind-scrollbar-hide')],
+	plugins: [tailwindScrollbarHide],
 };
