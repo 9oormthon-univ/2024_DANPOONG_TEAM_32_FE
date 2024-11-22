@@ -7,6 +7,7 @@ export default {
 		fontFamily: {
 			pre: ['Pretendard'],
 			tmon: ['TMONTium'],
+			yangjin: ['Yangjin'],
 		},
 		extend: {
 			dropShadow: {
