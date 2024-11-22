@@ -1,18 +1,18 @@
-import MainLayout from '@layout/mainLayout';
+import { Navigate } from 'react-router-dom';
 
+import MainLayout from '@layout/mainLayout';
 import Home from '@pages/home';
+import WelfareCardContainer from '@pages/welfareCard';
 import YouthMapContainer from '@pages/youthMap';
 import DictionaryContainer from '@pages/dictionary';
 import MyPageContainer from '@pages/myPage';
 import OnboardingContainer from '@pages/onBoarding';
-
-import onboardingRoutes from '@routes/onboardingRoutes';
-import mypageRoutes from '@routes/mypageRoutes';
-import { Navigate } from 'react-router-dom';
-
+import homeRoutes from '@routes/homeRoutes';
+import welfarecardRoutes from './welfarecardRoutes';
 import youthmapRoutes from '@routes/youthmapRoutes';
 import dictionaryRoutes from '@routes/dictionaryRoutes';
-import homeRoutes from '@routes/homeRoutes';
+import mypageRoutes from '@routes/mypageRoutes';
+import onboardingRoutes from '@routes/onboardingRoutes';
 
 const mainRoutes = {
 	path: '/',
@@ -29,7 +29,8 @@ const mainRoutes = {
 		},
 		{
 			path: '/welfare-card',
-			// element: <WelfareCard/>
+			element: <WelfareCardContainer />,
+			children: welfarecardRoutes,
 		},
 		{
 			path: '/youth-map',
