@@ -21,3 +21,9 @@
 	font-weight: 400;
 	src: local('TMONTium'), url('/src/assets/fonts/TMONTium.ttf');
 }
+
+@font-face {
+	font-family: Yangjin;
+	font-weight: 400;
+	src: local('Yangjin'), url('/src/assets/fonts/Yangjin.otf') format('opentype');
+}
