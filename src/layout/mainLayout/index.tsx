@@ -41,7 +41,9 @@ export default function MainLayout() {
 		if (navOrder.hasOwnProperty(location.pathname) && navOrder.hasOwnProperty(prevPath)) {
 			console.log(navOrder[location.pathname as keyof typeof navOrder], navOrder[prevPath as keyof typeof navOrder]);
 
-			return navOrder[location.pathname as keyof typeof navOrder] > navOrder[prevPath as keyof typeof navOrder] ? 1 : -1;
+			return navOrder[location.pathname as keyof typeof navOrder] > navOrder[prevPath as keyof typeof navOrder]
+				? -1
+				: 1;
 		}
 		// 세부 페이지 이동시
 		return currPage > prevPage ? 1 : -1;
