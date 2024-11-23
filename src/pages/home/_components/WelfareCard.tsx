@@ -1,31 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 
+import welfareIcon1 from '/src/assets/images/welfare-icon-1.png';
+import welfareIcon2 from '/src/assets/images/welfare-icon-2.png';
+import welfareIcon3 from '/src/assets/images/welfare-icon-3.png';
+import welfareIcon4 from '/src/assets/images/welfare-icon-4.png';
+import welfareIcon5 from '/src/assets/images/welfare-icon-5.png';
+
 const welfareItems = [
-	{
-		title: '일자리',
-		icon: '/src/assets/images/welfare-icon-1.png',
-		url: '/welfare/job',
-	},
-	{
-		title: '주거',
-		icon: '/src/assets/images/welfare-icon-2.png',
-		url: '/welfare/house',
-	},
-	{
-		title: '참여/권리',
-		icon: '/src/assets/images/welfare-icon-3.png',
-		url: '/welfare/participation',
-	},
-	{
-		title: '교육',
-		icon: '/src/assets/images/welfare-icon-4.png',
-		url: '/welfare/education',
-	},
-	{
-		title: '복지/문화',
-		icon: '/src/assets/images/welfare-icon-5.png',
-		url: '/welfare/culture',
-	},
+	{ title: '일자리', icon: welfareIcon1, url: '/welfare/job' },
+	{ title: '주거', icon: welfareIcon2, url: '/welfare/house' },
+	{ title: '참여/권리', icon: welfareIcon3, url: '/welfare/participation' },
+	{ title: '교육', icon: welfareIcon4, url: '/welfare/education' },
+	{ title: '복지/문화', icon: welfareIcon5, url: '/welfare/culture' },
 ];
 
 export default function WelfareCard() {
