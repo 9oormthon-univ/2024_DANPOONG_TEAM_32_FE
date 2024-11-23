@@ -22,10 +22,15 @@ export default {
 					'0%, 100%': { transform: 'scale(1) rotate(0deg)' },
 					'50%': { transform: 'scale(1.1) rotate(5deg)' },
 				},
+				floating: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
 			},
 			animation: {
 				fade: 'fade 1.2s infinite ease-in-out',
 				celebration: 'celebration 2s ease-in-out infinite',
+				floating: 'floating 2s ease-in-out infinite',
 			},
 			colors: {
 				theme: {
