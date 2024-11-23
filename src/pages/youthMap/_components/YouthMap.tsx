@@ -57,9 +57,6 @@ export default function YouthMap() {
 	const updateCenterWhenMapDragged = useMemo(
 		() =>
 			debounce((map: kakao.maps.Map) => {
-				console.log(map.getCenter());
-				console.log(map.getBounds().getNorthEast());
-				console.log(map.getBounds().getSouthWest());
 				setCenter({
 					lat: map.getCenter().getLat(),
 					lng: map.getCenter().getLng(),
