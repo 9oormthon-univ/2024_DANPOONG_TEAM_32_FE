@@ -44,4 +44,8 @@ export class HttpInterface {
 			searchParams: { category: params.category },
 		});
 	}
+
+	async getWelfareByCategory(params: { policy_id: number }) {
+		return this.apiClient.get(`policy/recommend?cardNum=${params.policy_id}`);
+	}
 }
