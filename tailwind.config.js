@@ -18,9 +18,14 @@ export default {
 					'0%, 39%, 100%': { opacity: 0 },
 					'40%': { opacity: 1 },
 				},
+				celebration: {
+					'0%, 100%': { transform: 'scale(1) rotate(0deg)' },
+					'50%': { transform: 'scale(1.1) rotate(5deg)' },
+				},
 			},
 			animation: {
 				fade: 'fade 1.2s infinite ease-in-out',
+				celebration: 'celebration 2s ease-in-out infinite',
 			},
 			colors: {
 				theme: {
