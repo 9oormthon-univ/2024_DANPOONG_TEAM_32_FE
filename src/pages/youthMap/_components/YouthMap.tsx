@@ -75,17 +75,28 @@ export default function YouthMap() {
 
 	const handleMarkerClick = (markData: PublicOfficeDataType) => {
 		setSelectedMarker(markData);
-		console.log(markData);
-		const OFFSET = 0.001; // 약 100미터 정도의 오프셋
+
+		const map = mapRef.current;
+		if (!map) return;
+
+		const lat = Number(markData.latitude);
+		const lng = Number(markData.longitude);
+
+		// 유효한 좌표값인지 확인
+		if (isNaN(lat) || isNaN(lng)) {
+			console.error('유효하지 않은 좌표값:', markData);
+			return;
+		}
+
+		const mapBounds = map.getBounds();
+		const latOffset = 0.0028;
 
 		setCenter({
-			lat: markData.latitude + OFFSET,
-			lng: markData.longitude,
+			lat: lat - latOffset,
+			lng: lng,
 		});
 
-		if (mapRef.current) {
-			mapRef.current.setLevel(4);
-		}
+		map.setLevel(4);
 		setIsInfoWindowOpen(true);
 	};
 
@@ -196,7 +207,7 @@ export default function YouthMap() {
 								<Button
 									text="전체 사업 확인하기"
 									onClick={() => {}}
-									className=" bg-white text-[#BBBBBB] shadow-none hover:bg-white"
+									className="bg-white !text-[#BBBBBB] shadow-none hover:bg-white"
 								/>
 							</div>
 						</div>
