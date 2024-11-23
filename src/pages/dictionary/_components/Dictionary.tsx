@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import IconGraduationCap from '@assets/svg/graduation-cap.svg?react';
@@ -19,8 +19,47 @@ function IconWrapper({ children, className = '' }: IconWrapperProps) {
 	return <div className={`w-8 h-8 flex justify-center items-center ${className}`}>{children}</div>;
 }
 
-export default function Dictionary() {
+const MENU_ITEMS: MenuItem[] = [
+	{ title: '금융', icon: <IconGraph />, route: 'finance' },
+	{ title: '경제', icon: <IconMoneyBag />, route: 'economy' },
+	{ title: '사회', icon: <IconPeople />, route: 'society' },
+	{ title: '공공', icon: <IconBank />, route: 'public' },
+];
+
+interface MenuItem {
+	title: string;
+	icon: ReactNode;
+	route: string;
+}
+
+function MenuItem({ title, icon, route }: MenuItem) {
 	const navigate = useNavigate();
+
+	return (
+		<div onClick={() => navigate(route)} className="h-20 border-b flex justify-between items-center cursor-pointer">
+			<div className="flex items-center">
+				<IconWrapper className="mr-6">{icon}</IconWrapper>
+				<div className="font-bold">{title}</div>
+			</div>
+			<IconWrapper>
+				<IconArrowRight />
+			</IconWrapper>
+		</div>
+	);
+}
+
+export default function Dictionary() {
+	const [searchWord, setSearchWord] = useState('');
+
+	function inputHandler(event: React.ChangeEvent<HTMLInputElement>) {
+		const inputValue = event.target.value;
+		setSearchWord(inputValue);
+	}
+
+	function onSearchSubmit(searchValue: string) {
+		console.log('Search submitted:', searchValue);
+		// TODO: 검색어를 사용해 API 호출 또는 페이지 이동 처리
+	}
 
 	return (
 		<PageContainer>
@@ -36,60 +75,13 @@ export default function Dictionary() {
 					<IconGraduationCap />
 				</div>
 				<div className="translate-y-[-100%]">
-					<SearchBar />
+					<SearchBar inputHandler={inputHandler} onSearchSubmit={onSearchSubmit} type="" />
 				</div>
 			</div>
 			<div>
-				<div
-					onClick={() => navigate('finance')}
-					className="h-20 border-b flex justify-between items-center cursor-pointer">
-					<div className="flex items-center">
-						<IconWrapper className="mr-6">
-							<IconGraph />
-						</IconWrapper>
-						<div className="font-bold">금융</div>
-					</div>
-					<IconWrapper>
-						<IconArrowRight />
-					</IconWrapper>
-				</div>
-				<div
-					onClick={() => navigate('economy')}
-					className="h-20 border-b flex justify-between items-center cursor-pointer">
-					<div className="flex items-center">
-						<IconWrapper className="mr-6">
-							<IconMoneyBag />
-						</IconWrapper>
-						<div className="font-bold">경제</div>
-					</div>
-					<IconWrapper>
-						<IconArrowRight />
-					</IconWrapper>
-				</div>
-				<div
-					onClick={() => navigate('society')}
-					className="h-20 border-b flex justify-between items-center cursor-pointer">
-					<div className="flex items-center">
-						<IconWrapper className="mr-6">
-							<IconPeople />
-						</IconWrapper>
-						<div className="font-bold">사회</div>
-					</div>
-					<IconWrapper>
-						<IconArrowRight />
-					</IconWrapper>
-				</div>
-				<div onClick={() => navigate('public')} className="h-20 flex justify-between items-center cursor-pointer">
-					<div className="flex items-center">
-						<IconWrapper className="mr-6">
-							<IconBank />
-						</IconWrapper>
-						<div className="font-bold">공공</div>
-					</div>
-					<IconWrapper>
-						<IconArrowRight />
-					</IconWrapper>
-				</div>
+				{MENU_ITEMS.map((item) => (
+					<MenuItem key={item.route} {...item} />
+				))}
 			</div>
 		</PageContainer>
 	);
