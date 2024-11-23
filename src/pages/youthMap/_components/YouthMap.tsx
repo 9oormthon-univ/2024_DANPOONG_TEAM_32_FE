@@ -88,7 +88,6 @@ export default function YouthMap() {
 			return;
 		}
 
-		const mapBounds = map.getBounds();
 		const latOffset = 0.0028;
 
 		setCenter({
@@ -178,8 +177,10 @@ export default function YouthMap() {
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
 						transition={{ type: 'spring', stiffness: 120, damping: 20 }}>
-						<div className="flex flex-col justify-center items-center mt-5">
-							<button onClick={closeInfoWindow}>닫기</button>
+						<div className="relative flex flex-col justify-center items-center mt-5">
+							<button onClick={closeInfoWindow} className="absolute right-0 top-[-20px]">
+								<Icon name="CloseBtnIcon" className="w-[20px] h-[20px]" />
+							</button>
 							<div className="flex flex-col items-center">
 								<h1 className="text-xl font-bold my-2">{selectedMarker.publicOfficeName}</h1>
 								<p className="text-lg font-light">{selectedMarker.roadAddress}</p>
