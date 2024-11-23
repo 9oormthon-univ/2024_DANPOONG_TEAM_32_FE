@@ -16,12 +16,15 @@ import { AnimatePresence, motion } from 'motion/react';
 import Icon from '@components/Icon';
 import UnderlineText from '@components/UnderlineText';
 import Button from '@components/Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function YouthMap() {
 	useKakaoLoader();
 	const mapRef = useRef<kakao.maps.Map>(null);
 	const { position, center, ne, sw, setPosition, setCenter, setNE, setSW } = useMapStore();
 	const { data, isLoading, isError, refetch } = useFetchPublicOffices(ne, sw);
+
+	const navigate = useNavigate();
 
 	const [selectedMarker, setSelectedMarker] = useState<PublicOfficeDataType>();
 	const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
@@ -203,8 +206,13 @@ export default function YouthMap() {
 								<Icon name="GiftBoxIcon" className="w-[23px] h-[25px] mr-1" />
 								<Icon name="GiftBoxIcon" className="w-[46px] h-[50px]" />
 							</div>
-							<div className="mt-8 flex flex-col">
-								<Button text="내 복지카드 확인하러 가기" onClick={() => {}} />
+							<div className="mt-12 flex flex-col">
+								<Button
+									text="내 복지카드 확인하러 가기"
+									onClick={() => {
+										navigate('/create-welfare-card/select-birth');
+									}}
+								/>
 								<Button
 									text="전체 사업 확인하기"
 									onClick={() => {}}
