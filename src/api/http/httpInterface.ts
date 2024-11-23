@@ -26,7 +26,7 @@ export class HttpInterface {
 		return this.apiClient.get('public-offices/nearby', { searchParams: params });
 	}
 
-	async signup(params: { username: string; userLoginId: string }) {
+  async signup(params: { username: string; userLoginId: string }) {
 		console.log('signup');
 		return this.apiClient.post('/auth/signup', params);
 	}
