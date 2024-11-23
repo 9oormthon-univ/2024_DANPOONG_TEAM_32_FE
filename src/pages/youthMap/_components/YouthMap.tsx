@@ -40,14 +40,29 @@ export default function YouthMap() {
 		const map = mapRef.current;
 		if (!map) return;
 
+		// 초기 바운드 설정
+		const bounds = map.getBounds();
 		setSW({
-			lat: map.getBounds().getSouthWest().getLat(),
-			lng: map.getBounds().getSouthWest().getLng(),
+			lat: bounds.getSouthWest().getLat(),
+			lng: bounds.getSouthWest().getLng(),
 		});
 		setNE({
-			lat: map.getBounds().getNorthEast().getLat(),
-			lng: map.getBounds().getNorthEast().getLng(),
+			lat: bounds.getNorthEast().getLat(),
+			lng: bounds.getNorthEast().getLng(),
 		});
+
+		// 지도가 로드된 후 데이터 가져오기
+		const loadInitialData = () => {
+			console.log('지도가 로드되었습니다.');
+			refetch();
+			kakao.maps.event.removeListener(map, 'tilesloaded', loadInitialData);
+		};
+
+		kakao.maps.event.addListener(map, 'tilesloaded', loadInitialData);
+
+		return () => {
+			kakao.maps.event.removeListener(map, 'tilesloaded', loadInitialData);
+		};
 	}, [mapRef.current]);
 
 	const setCenterToCurrentPosition = () => {
