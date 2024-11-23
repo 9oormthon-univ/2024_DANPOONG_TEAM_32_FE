@@ -8,7 +8,7 @@ import Button from '@components/Button';
 export default function OnboardingComponentFifth() {
 	const navigate = useNavigate();
 	const handleNext = () => {
-		navigate('/onboarding/second');
+		navigate('/onboarding/nickname');
 	};
 
 	return (

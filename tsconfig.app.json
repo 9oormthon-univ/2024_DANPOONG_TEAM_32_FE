@@ -34,7 +34,8 @@
 			"@routes/*": ["src/routes/*"],
 			"@stores/*": ["src/stores/*"],
 			"@type/*": ["src/type/*"],
-			"@utils/*": ["src/utils/*"]
+			"@utils/*": ["src/utils/*"],
+			"@styles/*": ["src/styles/*"]
 		}
 	},
 	"include": ["src", "src/svg.d.ts"]

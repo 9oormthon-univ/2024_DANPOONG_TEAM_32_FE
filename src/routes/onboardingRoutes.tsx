@@ -3,6 +3,8 @@ import OnboardingComponentSecond from '@pages/onBoarding/_components/OnboardingC
 import OnboardingComponentThird from '@pages/onBoarding/_components/OnboardingComponentThird';
 import OnboardingComponentFourth from '@pages/onBoarding/_components/OnboardingComponentFourth';
 import OnboardingComponentFifth from '@pages/onBoarding/_components/OnboardingComponentFifth';
+import InputNickname from '@pages/onBoarding/_components/InputNickname';
+import InputID from '@pages/onBoarding/_components/InputID';
 
 const onboardingRoutes = [
 	{
@@ -24,6 +26,14 @@ const onboardingRoutes = [
 	{
 		path: 'fifth',
 		element: <OnboardingComponentFifth />,
+	},
+	{
+		path: 'nickname',
+		element: <InputNickname />,
+	},
+	{
+		path: 'id',
+		element: <InputID />,
 	},
 ];
 

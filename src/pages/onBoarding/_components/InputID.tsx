@@ -6,26 +6,25 @@ import img from '@assets/images/onboarding_3.png';
 import Button from '@components/Button';
 import useLoginStore from '@stores/useLoginStore';
 
-export default function InputNickname() {
+export default function InputID() {
 	const navigate = useNavigate();
 
-	const { nickname, setNickname } = useLoginStore();
+	const { id, setId } = useLoginStore();
 
 	const handleNext = () => {
-		navigate('/onboarding/id');
+		navigate('/onboarding/fourth');
 	};
 
 	return (
 		<div className="flex flex-col items-center justify-between h-screen bg-gray-50">
 			<div className="flex flex-col items-center mt-52">
-				<p className="font-light text-black">거의 다 왔어요!</p>
 				<p className="text-center font-medium text-2xl text-black">
-					<UnderlineText text="닉네임" />을 입력해주세요
+					<UnderlineText text="아이디" />를 입력해주세요
 				</p>
 				<input
 					type="text"
-					value={nickname}
-					onChange={(e) => setNickname(e.target.value)}
+					value={id}
+					onChange={(e) => setId(e.target.value)}
 					className="w-[334px] h-12 mt-12 bg-[#F4F4F4] rounded-[10px] focus:outline-none text-center px-4 caret-transparent
 					text-lg font-medium text-black placeholder:text-gray-400"
 				/>
