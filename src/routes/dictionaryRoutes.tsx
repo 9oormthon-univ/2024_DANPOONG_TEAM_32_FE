@@ -1,8 +1,6 @@
 import Dictionary from '@pages/dictionary/_components/Dictionary';
-import Economy from '@pages/dictionary/_components/Economy';
-import Finance from '@pages/dictionary/_components/Finance';
-import Public from '@pages/dictionary/_components/Public';
-import Society from '@pages/dictionary/_components/Society';
+import DictionaryByCategory from '@pages/dictionary/_components/DictionaryByCategory';
+import DictionaryDetail from '@pages/dictionary/_components/DictionaryDetail';
 
 const dictionaryRoutes = [
 	{
@@ -11,19 +9,35 @@ const dictionaryRoutes = [
 	},
 	{
 		path: 'finance',
-		element: <Finance />,
+		element: <DictionaryByCategory />,
+	},
+	{
+		path: 'finance/:id',
+		element: <DictionaryDetail />,
 	},
 	{
 		path: 'economy',
-		element: <Economy />,
+		element: <DictionaryByCategory />,
+	},
+	{
+		path: 'economy/:id',
+		element: <DictionaryDetail />,
 	},
 	{
 		path: 'society',
-		element: <Society />,
+		element: <DictionaryByCategory />,
+	},
+	{
+		path: 'society/:id',
+		element: <DictionaryDetail />,
 	},
 	{
 		path: 'public',
-		element: <Public />,
+		element: <DictionaryByCategory />,
+	},
+	{
+		path: 'public/:id',
+		element: <DictionaryDetail />,
 	},
 ];
 
