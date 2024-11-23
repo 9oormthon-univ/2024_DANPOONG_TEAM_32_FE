@@ -28,6 +28,20 @@ export class HttpInterface {
 
 	async signup(params: { username: string; userLoginId: string }) {
 		console.log('signup');
-		return this.apiClient.post('auth/signup', params);
+		return this.apiClient.post('/auth/signup', params);
+	}
+
+	async getWordById(params: { word_id: number }) {
+		return this.apiClient.get(`word/${params.word_id}`);
+	}
+
+	async getWordSearch(params: { type: string; word: string }) {
+		return this.apiClient.get('word/search', { searchParams: params });
+	}
+
+	async getWordByCategory(params: { category: string; page_num: number }) {
+		return this.apiClient.get(`word/category/${params.page_num}`, {
+			searchParams: { category: params.category },
+		});
 	}
 }

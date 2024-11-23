@@ -14,23 +14,17 @@ export default function LoadingScreen() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			// const startTime = Date.now();
-			// try {
-			// 	await fetchKakaoAPI();
-			// } catch (error) {
-			// 	console.error('Failed to fetch Kakao API:', error);
-			// } finally {
-			// 	const elapsedTime = Date.now() - startTime;
-			// 	const remainingTime = Math.max(2000 - elapsedTime, 0);
-			// 	setTimeout(() => {
-			// 		setLoading(false);
-			// 		navigate('/youth-map/map', { replace: true });
-			// 	}, remainingTime);
-			// }
+			const startTime = Date.now();
+
+			// 2초 후에 다음 페이지로 이동
+			setTimeout(() => {
+				setLoading(false);
+				navigate('/create-welfare-card/result', { replace: true });
+			}, 2000);
 		};
 
 		fetchData();
-	}, [navigate]); // Proper dependencies
+	}, [navigate]);
 
 	return (
 		<div className="flex flex-col items-center justify-center h-full bg-white px-4 mt-36">

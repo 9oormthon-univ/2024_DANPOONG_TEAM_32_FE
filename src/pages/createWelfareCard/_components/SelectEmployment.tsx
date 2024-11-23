@@ -39,11 +39,11 @@ export default function SelectEmployment() {
 	};
 
 	return (
-		<div className="h-100% w-100%">
-			<div className="bg-white m-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
-				<IconMyLocation className="w-[20px] h-[20px]" />
+		<div className="flex flex-col items-center justify-between h-screen bg-white">
+			<div className="w-full bg-white px-5 pt-5">
+				<IconMyLocation className="w-[20px] h-[20px] cursor-pointer" onClick={() => navigate(-1)} />
 			</div>
-			<div className="flex flex-col items-center justify-center h-full bg-white px-4">
+			<div className="flex flex-col items-center h-full mt-20 bg-white px-4">
 				<div className="flex flex-col text-center font-medium my-10">
 					<h2 className="text-2xl text-black">
 						<UnderlineText text="취업정보" />를 입력해주세요!

@@ -4,6 +4,7 @@ import SelectEmployment from '@pages/createWelfareCard/_components/SelectEmploym
 import SelectBasic from '@pages/createWelfareCard/_components/SelectBasic';
 import SelectInterest from '@pages/createWelfareCard/_components/SelectInterest';
 import SelectLoading from '@pages/createWelfareCard/_components/SelectLoading';
+import CardResult from '@pages/createWelfareCard/_components/CardResult';
 
 const createWelfareCardRoutes = [
 	{
@@ -29,6 +30,10 @@ const createWelfareCardRoutes = [
 	{
 		path: 'select-loading',
 		element: <SelectLoading />,
+	},
+	{
+		path: 'result',
+		element: <CardResult />,
 	},
 ];
 
