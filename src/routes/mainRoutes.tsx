@@ -16,6 +16,7 @@ import dictionaryRoutes from '@routes/dictionaryRoutes';
 import mypageRoutes from '@routes/mypageRoutes';
 import onboardingRoutes from '@routes/onboardingRoutes';
 import createWelfareCardRoutes from '@routes/createWelfareCardRoutes';
+import Developing from '@pages/developing';
 
 const mainRoutes = {
 	path: '/',
@@ -59,6 +60,10 @@ const mainRoutes = {
 			path: '/create-welfare-card',
 			element: <CreateWelfareCardContainer />,
 			children: createWelfareCardRoutes,
+		},
+		{
+			path: '/developing',
+			element: <Developing />,
 		},
 	],
 };
