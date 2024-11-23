@@ -1,13 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
-
-interface Card {
-	id: number;
-	element: JSX.Element;
-	path: string;
-}
+import { WelfareCardType } from './WelfareCard';
 
 interface GridViewProps {
-	cards: Card[];
+	cards: WelfareCardType[];
 	setGridView: Dispatch<SetStateAction<boolean>>;
 	setId: Dispatch<SetStateAction<number>>;
 	setIndex: Dispatch<SetStateAction<number>>;

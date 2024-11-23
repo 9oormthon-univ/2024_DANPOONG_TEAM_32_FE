@@ -7,14 +7,10 @@ import { useFetchWelfareByCardId } from '@hooks/welfareCard/useFetchWelfareByCar
 import PageContainer from '@components/PageContainer';
 import IconStarActive from '@assets/svg/star-active.svg?react';
 import IconStarInactive from '@assets/svg/star-inactive.svg?react';
-
-interface Card {
-	element: JSX.Element;
-	path: string;
-}
+import { WelfareCardType } from './WelfareCard';
 
 interface GridViewProps {
-	cards: Card[];
+	cards: WelfareCardType[];
 	id: number;
 	index: number;
 }
@@ -27,8 +23,8 @@ interface WelfareRecommendCardProps {
 
 function WelfareRecommendCard({ policyId, policyName, ageInfo }: WelfareRecommendCardProps) {
 	return (
-		<div key={policyId} className="min-h-32 w-56 flex justify-center mt-10 flex overflow-x-scroll">
-			<div className="flex flex-col border rounded-xl p-2 justify-between">
+		<div key={policyId} className="min-h-32 w-56 flex justify-center mt-4 overflow-x-scroll">
+			<div className="flex flex-col w-[200px] mb-2 border-theme-main border rounded-xl p-2 justify-between shadow-sm">
 				<div className="flex">
 					<div className="w-6 h-6 flex justify-center items-center mr-1">
 						<IconStarInactive className="w-[18px] h-[18px]" />
@@ -43,21 +39,24 @@ function WelfareRecommendCard({ policyId, policyName, ageInfo }: WelfareRecommen
 	);
 }
 
-export default function SingleView({ cards, id, index }: GridViewProps) {
-	const navigate = useNavigate();
+export default function SingleView({ cards, id, index, setId }: GridViewProps & { setId: (id: number) => void }) {
 	const [currentIndex, setCurrentIndex] = useState(index);
 	const { data, isLoading, isError, refetch } = useFetchWelfareByCardId(id);
 
 	const handlePrev = () => {
 		if (currentIndex > 0) {
-			setCurrentIndex(currentIndex - 1);
+			const newIndex = currentIndex - 1;
+			setCurrentIndex(newIndex);
+			setId(cards[newIndex].id);
 			refetch();
 		}
 	};
 
 	const handleNext = () => {
 		if (currentIndex < cards.length - 1) {
-			setCurrentIndex(currentIndex + 1);
+			const newIndex = currentIndex + 1;
+			setCurrentIndex(newIndex);
+			setId(cards[newIndex].id);
 			refetch();
 		}
 	};
@@ -65,7 +64,7 @@ export default function SingleView({ cards, id, index }: GridViewProps) {
 	return (
 		<>
 			<PageContainer>
-				<div className="relative w-full flex justfy-between items-center pt-2">
+				<div className="relative w-full flex justify-between items-center pt-2">
 					<div onClick={handlePrev} className={`pr-1 ${currentIndex > 0 ? 'cursor-pointer' : ''}`}>
 						{currentIndex > 0 ? <IconArrowLeft className="w-7 h-7" /> : <div className="w-7 h-7" />}
 					</div>
@@ -85,7 +84,7 @@ export default function SingleView({ cards, id, index }: GridViewProps) {
 					</div>
 				</div>
 				<div className="flex justify-center text-center pt-6 font-bold text-xl">
-					유맵이 문화서비스를
+					유맵이 {cards[currentIndex].name} 서비스를
 					<br />
 					추천해드릴게요!
 				</div>

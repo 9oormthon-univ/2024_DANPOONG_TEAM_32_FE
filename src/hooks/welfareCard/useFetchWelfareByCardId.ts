@@ -3,7 +3,7 @@ import useNetwork from '@stores/networkStore';
 import { WelfareDataType } from '@type/welfareData.type';
 
 interface ResponseType {
-	data: WelfareDataType;
+	data: WelfareDataType[];
 	message: string;
 	statusCode: number;
 }
