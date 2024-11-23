@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 
-export default function OnboardingContainer() {
+export default function CreateWelfareCardContainer() {
 	const location = useLocation();
 
 	return (

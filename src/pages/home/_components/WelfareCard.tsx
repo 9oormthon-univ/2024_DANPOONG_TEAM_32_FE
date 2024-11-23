@@ -40,7 +40,7 @@ export default function WelfareCard() {
 					{welfareItems.map((item, index) => (
 						<div
 							key={index}
-							onClick={() => navigate(item.url)} // 클릭 시 navigate로 이동
+							onClick={() => navigate('/developing')} // 클릭 시 navigate로 이동
 							className="flex flex-col items-center justify-center text-center my-4 cursor-pointer">
 							<div className="w-[66px] h-[66px] flex flex-col items-center justify-center bg-gray-100 rounded-full shadow-lg">
 								<img src={item.icon} alt={item.title} className="w-8 h-7" />
