@@ -54,7 +54,9 @@ export default function YouthMap() {
 		// 지도가 로드된 후 데이터 가져오기
 		const loadInitialData = () => {
 			console.log('지도가 로드되었습니다.');
-			refetch();
+			setTimeout(() => {
+				refetch();
+			}, 1000);
 			kakao.maps.event.removeListener(map, 'tilesloaded', loadInitialData);
 		};
 
