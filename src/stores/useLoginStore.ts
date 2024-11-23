@@ -1,4 +1,3 @@
-// 사용 예시로 올려드렸습니다!
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
