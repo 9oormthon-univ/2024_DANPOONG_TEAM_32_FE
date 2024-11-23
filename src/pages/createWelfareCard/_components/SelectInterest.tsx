@@ -9,33 +9,33 @@ import IconMyLocation from '@assets/svg/prev.svg?react';
 import Button from '@components/Button';
 import useCreateCardInfoStore from '@stores/useCreateCardInfoStore';
 
-export default function SelectBasic() {
+export default function SelectInterest() {
 	const navigate = useNavigate();
 
 	const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
 
-	const { basic, setBasic } = useCreateCardInfoStore();
+	const { interest, setInterest } = useCreateCardInfoStore();
 
-	const basicOptions = {
-		basic: ['중소기업', '저소득층', '여성', '군인', '장애인'],
+	const interestOptions = {
+		interest: ['일자리 분야', '주거 분야', '복지, 문화 분야', '교육 분야', '참여, 권리 분야'],
 	};
 
-	// basic의 초기값을 basicOptions의 첫 번째 값으로 설정
+	// interest의 초기값을 interestOptions의 첫 번째 값으로 설정
 	useEffect(() => {
-		if (!basic) {
-			setBasic(basicOptions.basic[0]);
+		if (!interest) {
+			setInterest(interestOptions.interest[0]);
 		}
-	}, [basic, setBasic]);
+	}, [interest, setInterest]);
 
 	// 다음 버튼 클릭 핸들러
 	const handleNext = () => {
-		navigate('/create-welfare-card/select-interest'); // 다음 화면으로 이동
+		navigate('/create-welfare-card/select-loading'); // 다음 화면으로 이동
 	};
 
 	// Picker 값의 타입 정의
-	const value = { basic: basic };
-	const handleChange = (newValue: { basic: string }) => {
-		setBasic(newValue.basic);
+	const value = { interest: interest };
+	const handleChange = (newValue: { interest: string }) => {
+		setInterest(newValue.interest);
 	};
 
 	return (
@@ -46,13 +46,13 @@ export default function SelectBasic() {
 			<div className="flex flex-col items-center justify-center h-full bg-white px-4">
 				<div className="flex flex-col text-center font-medium my-10">
 					<h2 className="text-2xl text-black">
-						<UnderlineText text="기본정보" />를 입력해주세요!
+						<UnderlineText text="관심주제" />를 입력해주세요!
 					</h2>
 				</div>
 				<div
 					className="w-[334px] h-[53px] bg-[#F4F4F4] rounded-lg flex items-center justify-center text-black text-2xl"
 					onClick={() => setIsInfoWindowOpen(true)}>
-					{basic}
+					{interest}
 				</div>
 				<Button
 					text="다음으로 넘어가기"
@@ -76,9 +76,9 @@ export default function SelectBasic() {
 							</button>
 						</div>
 						<Picker value={value} onChange={handleChange}>
-							{Object.keys(basicOptions).map((name) => (
+							{Object.keys(interestOptions).map((name) => (
 								<Picker.Column key={name} name={name}>
-									{basicOptions[name].map((option) => (
+									{interestOptions[name].map((option) => (
 										<Picker.Item key={option} value={option}>
 											{option}
 										</Picker.Item>
