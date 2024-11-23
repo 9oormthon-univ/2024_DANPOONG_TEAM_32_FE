@@ -69,7 +69,7 @@ export default function YouthMap() {
 					lat: map.getBounds().getSouthWest().getLat(),
 					lng: map.getBounds().getSouthWest().getLng(),
 				});
-			}, 500),
+			}, 100),
 		[],
 	);
 
