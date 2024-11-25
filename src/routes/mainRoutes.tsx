@@ -17,6 +17,7 @@ import mypageRoutes from '@routes/mypageRoutes';
 import onboardingRoutes from '@routes/onboardingRoutes';
 import createWelfareCardRoutes from '@routes/createWelfareCardRoutes';
 import Developing from '@pages/developing';
+import Login from '@pages/login';
 
 const mainRoutes = {
 	path: '/',
@@ -64,6 +65,10 @@ const mainRoutes = {
 		{
 			path: '/developing',
 			element: <Developing />,
+		},
+		{
+			path: '/login',
+			element: <Login />,
 		},
 	],
 };
