@@ -5,6 +5,7 @@ export const shouldHideHeaderAndFooter = (pathname: string) => {
 	return (
 		pathname.startsWith('/youth-map') ||
 		pathname.startsWith('/onboarding') ||
-		pathname.startsWith('/create-welfare-card')
+		pathname.startsWith('/create-welfare-card') ||
+		pathname.startsWith('/login')
 	);
 };
