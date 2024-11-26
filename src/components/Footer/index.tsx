@@ -35,7 +35,7 @@ export default function Footer() {
 					<div className="h-9 flex justify-center items-center">
 						{useMatch('/welfare-card/*') ? <IconWelfareCardActive /> : <IconWelfareCardInactive />}
 					</div>
-					<span className="text-xs">복지카드</span>
+					<span className="text-xs">복지패스</span>
 				</button>
 				<div>
 					<button
