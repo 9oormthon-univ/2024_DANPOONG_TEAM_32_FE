@@ -27,34 +27,27 @@ const useAuthStore = create<AuthStoreType>((set) => ({
 	login: async () => {
 		try {
 			await new Promise((resolve, reject) => {
-				window.Kakao.Auth.login({
-					success: (authObj) => resolve(authObj),
+				window.Kakao.Auth.authorize({
+					redirectUri: 'http://localhost:5173/home',
+					success: async (authObj) => {
+						const authorizationCode = authObj.code;
+						console.log('Authorization Code:', authorizationCode);
+
+						const response = await ky.post('/auth/kakao', {
+							json: { authorization_code: authorizationCode },
+						});
+
+						// localStorage.setItem('authorizationCode', authorizationCode);
+						resolve(authObj);
+					},
 					fail: (err) => reject(err),
 				});
 			});
 
-			const access_token = Kakao.Auth.getAccessToken();
-			console.log(Kakao.Auth);
-			console.log(access_token);
-
-			// 사용자 정보 요청
-			Kakao.API.request({
-				url: '/v2/user/me',
-				success: (response) => {
-					const nickname = response.properties.nickname;
-					console.log('Nickname:', nickname);
-					// 사용자 정보를 상태에 저장
-					set({ user: { nickname }, isAuthenticated: true });
-				},
-				fail: (error) => {
-					console.error('Failed to get user info:', error);
-				},
-			});
-
-			// 백엔드로 카카오 액세스 토큰 전송
+			// 이후 authorization code를 백엔드로 전송하여 access token을 교환
 			// const response = await ky
 			// 	.post('https://your-backend.com/auth/kakao', {
-			// 		json: { access_token },
+			// 		json: { authorization_code: authorizationCode },
 			// 	})
 			// 	.json();
 
