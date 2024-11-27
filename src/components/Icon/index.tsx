@@ -14,7 +14,7 @@ import MyLocationIcon from '@assets/svg/my-location.svg?react';
 import CloseBtnIcon from '@assets/svg/close-btn.svg?react';
 import DevelopingIcon from '@assets/svg/tool.svg?react';
 import OnboardingFinishIcon from '@assets/svg/pangpare.svg?react';
-
+import KakaoIcon from '@assets/svg/kakao.svg?react';
 const iconMap = {
 	DollarIcon,
 	CityIcon,
@@ -32,6 +32,7 @@ const iconMap = {
 	CloseBtnIcon,
 	DevelopingIcon,
 	OnboardingFinishIcon,
+	KakaoIcon,
 	// svg 파일 추가..
 } as const;
 
