@@ -12,7 +12,7 @@ export default function MainLayout() {
 	const hideHeaderAndFooter = shouldHideHeaderAndFooter(location.pathname);
 
 	// 특정 경로 감지 (startsWith 사용)
-	const shouldAnimate = !location.pathname.startsWith('/youth-map') && !location.pathname.startsWith('/onboarding');
+	const shouldAnimate = !location.pathname.startsWith('/youth-map');
 
 	const [prevPage, setPrevPage] = useState(0);
 	const [currPage, setCurrPage] = useState(0);

@@ -12,15 +12,20 @@ export class Http implements ICommunication {
 
 	constructor() {
 		this.httpClient = ky.create({
-			prefixUrl: 'http://www.youthmap.site:8080/api/',
+			prefixUrl: import.meta.env.VITE_API_PREFIX_URL,
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			timeout: 10000, // Timeout 설정 (ms)
+			timeout: 5000, // Timeout 설정 (ms)
 			hooks: {
 				beforeRequest: [
 					(request) => {
 						console.log(`Requesting: ${request.url}`);
+						const accessToken = localStorage.getItem('accessToken');
+						console.log('accessToken', accessToken);
+						if (accessToken) {
+							request.headers.set('Authorization', `Bearer ${accessToken}`);
+						}
 					},
 				],
 			},
@@ -28,18 +33,38 @@ export class Http implements ICommunication {
 	}
 
 	async get(url: string, options?: Options) {
-		return this.httpClient.get(url, options).json();
+		try {
+			return await this.httpClient.get(url, options).json();
+		} catch (error) {
+			console.error('GET 요청 오류:', error);
+			throw error;
+		}
 	}
 
 	async post(url: string, data: any, options?: Options) {
-		return this.httpClient.post(url, { json: data, ...options }).json();
+		try {
+			return await this.httpClient.post(url, { json: data, ...options }).json();
+		} catch (error) {
+			console.error('POST 요청 오류:', error);
+			throw error;
+		}
 	}
 
 	async put(url: string, data: any, options?: Options) {
-		return this.httpClient.put(url, { json: data, ...options }).json();
+		try {
+			return await this.httpClient.put(url, { json: data, ...options }).json();
+		} catch (error) {
+			console.error('PUT 요청 오류:', error);
+			throw error;
+		}
 	}
 
 	async delete(url: string, options?: Options) {
-		return this.httpClient.delete(url, options).json();
+		try {
+			return await this.httpClient.delete(url, options).json();
+		} catch (error) {
+			console.error('DELETE 요청 오류:', error);
+			throw error;
+		}
 	}
 }

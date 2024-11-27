@@ -1,19 +1,22 @@
 import { create } from 'zustand';
 import ky from 'ky';
+import useNetwork from './networkStore';
 
 const { Kakao } = window;
 
 interface AuthStoreType {
-	user: any;
+	username: string;
+	accessToken: string;
 	isAuthenticated: boolean;
 	initKakao: () => void;
-	login: () => void;
+	login: (code: string) => void;
 	logout: () => void;
 	checkAuth: () => void;
 }
 
 const useAuthStore = create<AuthStoreType>((set) => ({
-	user: null,
+	username: '',
+	accessToken: '',
 	isAuthenticated: false,
 
 	initKakao: () => {
@@ -21,41 +24,28 @@ const useAuthStore = create<AuthStoreType>((set) => ({
 			console.error('Kakao SDK not found');
 			return;
 		}
-		Kakao.init(import.meta.env.VITE_JAVASCRIPT_KEY);
+		if (!Kakao.isInitialized()) {
+			Kakao.init(import.meta.env.VITE_KAKAO_LOGIN_KEY);
+		} else {
+			console.log('Kakao SDK already initialized');
+		}
 	},
 
-	login: async () => {
-		try {
-			await new Promise((resolve, reject) => {
-				window.Kakao.Auth.authorize({
-					redirectUri: 'http://localhost:5173/home',
-					success: async (authObj) => {
-						const authorizationCode = authObj.code;
-						console.log('Authorization Code:', authorizationCode);
+	login: async (code: string) => {
+		const response: { data: { accessToken: string; username: string } } = await ky
+			.post(`${import.meta.env.VITE_API_PREFIX_URL}/auth/login`, {
+				json: { authorizationCode: code },
+				credentials: 'include',
+			})
+			.json();
 
-						const response = await ky.post('/auth/kakao', {
-							json: { authorization_code: authorizationCode },
-						});
+		// response에서 accessToken을 localStorage에 저장
+		localStorage.setItem('accessToken', response.data.accessToken);
+		localStorage.setItem('username', response.data.username);
 
-						// localStorage.setItem('authorizationCode', authorizationCode);
-						resolve(authObj);
-					},
-					fail: (err) => reject(err),
-				});
-			});
+		// home 으로 리다이렉트
 
-			// 이후 authorization code를 백엔드로 전송하여 access token을 교환
-			// const response = await ky
-			// 	.post('https://your-backend.com/auth/kakao', {
-			// 		json: { authorization_code: authorizationCode },
-			// 	})
-			// 	.json();
-
-			// const { user } = response;
-			// set({ user, isAuthenticated: true });
-		} catch (error) {
-			console.error('Kakao login failed:', error);
-		}
+		set({ accessToken: response.data.accessToken, username: response.data.username, isAuthenticated: true });
 	},
 
 	logout: async () => {
@@ -64,18 +54,20 @@ const useAuthStore = create<AuthStoreType>((set) => ({
 				await Kakao.Auth.logout();
 			}
 			// await ky.post('/logout');
-			set({ user: null, isAuthenticated: false });
+			set({ username: '', accessToken: '', isAuthenticated: false });
 		} catch (error) {
 			console.error('Kakao logout failed:', error);
 		}
 	},
 
-	checkAuth: async () => {
-		try {
-			const user = await Kakao.User.me();
-			set({ user, isAuthenticated: true });
-		} catch (error) {
-			console.error('Kakao checkAuth failed:', error);
+	checkAuth: () => {
+		const accessToken = localStorage.getItem('accessToken');
+		const username = localStorage.getItem('username');
+
+		if (accessToken) {
+			set({ accessToken, username, isAuthenticated: true });
+		} else {
+			set({ username: '', accessToken: '', isAuthenticated: false });
 		}
 	},
 }));
