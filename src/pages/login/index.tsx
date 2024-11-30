@@ -20,7 +20,6 @@ export default function Login() {
 
 	useEffect(() => {
 		initKakao();
-		initKakao();
 
 		if (isAuthenticated) {
 			navigate('/home', { replace: true });
