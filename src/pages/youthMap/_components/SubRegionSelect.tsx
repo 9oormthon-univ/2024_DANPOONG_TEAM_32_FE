@@ -29,7 +29,7 @@ export default function SubRegionSelect() {
 
 	return (
 		<div className="w-100% h-100%">
-			<div className="bg-white m-5 mt-8 h-15 cursor-pointer" onClick={() => navigate(-1)}>
+			<div className="bg-white px-5 pt-8 pb-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
 				<IconMyLocation className="w-[20px] h-[20px]" />
 			</div>
 			<div className="flex flex-col items-center justify-center h-full bg-white px-4">

@@ -25,7 +25,7 @@ export default function RegionSelect() {
 
 	return (
 		<div className="h-100% w-100%">
-			<div className="bg-white p-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
+			<div className="bg-white px-5 pt-8 pb-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
 				<IconMyLocation className="w-[20px] h-[20px]" />
 			</div>
 			<div className="flex flex-col items-center justify-center h-full bg-white px-4">
