@@ -20,15 +20,15 @@ export default function DictionaryDetail() {
 			{!isLoading && (
 				<>
 					<PageNavbar icon={''} title={!isLoading && data.data.term} />
-					<div className="mt-2">
+					<div className="mt-4">
 						<RelatedWelfare value={data.data.relatedWelfare} />
 						<div className="mt-10">
-							<div className="text-xl font-bold">설명</div>
-							<div>{data.data.description}</div>
+							<div className="text-xl font-medium">설명</div>
+							<div className="mt-2">{data.data.description}</div>
 						</div>
 						<div className="mt-10">
-							<div className="text-xl font-bold">예시</div>
-							<div>{data.data.example}</div>
+							<div className="text-xl font-medium">예시</div>
+							<div className="mt-2">{data.data.example}</div>
 						</div>
 					</div>
 				</>
