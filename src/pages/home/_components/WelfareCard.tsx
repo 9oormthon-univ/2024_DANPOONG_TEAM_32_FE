@@ -1,17 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 
-import welfareIcon1 from '/src/assets/images/welfare-icon-1.png';
-import welfareIcon2 from '/src/assets/images/welfare-icon-2.png';
-import welfareIcon3 from '/src/assets/images/welfare-icon-3.png';
-import welfareIcon4 from '/src/assets/images/welfare-icon-4.png';
-import welfareIcon5 from '/src/assets/images/welfare-icon-5.png';
+import WelfareIcon1 from '@assets/svg/service-employment.svg?react';
+import WelfareIcon2 from '@assets/svg/service-housing.svg?react';
+import WelfareIcon3 from '@assets/svg/service-participation.svg?react';
+import WelfareIcon4 from '@assets/svg/service-education.svg?react';
+import WelfareIcon5 from '@assets/svg/service-welfare.svg?react';
+import WelfareIcon6 from '@assets/svg/service-all.svg?react';
 
 const welfareItems = [
-	{ title: '일자리', icon: welfareIcon1, url: '/welfare/job' },
-	{ title: '주거', icon: welfareIcon2, url: '/welfare/house' },
-	{ title: '참여/권리', icon: welfareIcon3, url: '/welfare/participation' },
-	{ title: '교육', icon: welfareIcon4, url: '/welfare/education' },
-	{ title: '복지/문화', icon: welfareIcon5, url: '/welfare/culture' },
+	{ title: '일자리', element: <WelfareIcon1 className="w-10 h-10" />, url: '/welfare/job' },
+	{ title: '주거', icelementoelementn: <WelfareIcon2 className="w-10 h-10" />, url: '/welfare/house' },
+	{ title: '참여/권리', element: <WelfareIcon3 className="w-10 h-10" />, url: '/welfare/participation' },
+	{ title: '교육', element: <WelfareIcon4 className="w-10 h-10" />, url: '/welfare/education' },
+	{ title: '복지/문화', element: <WelfareIcon5 className="w-10 h-10" />, url: '/welfare/culture' },
+	{ title: '한번에 보기', element: <WelfareIcon6 className="w-10 h-10" />, url: '/welfare/all' },
 ];
 
 export default function WelfareCard() {
@@ -29,8 +31,7 @@ export default function WelfareCard() {
 							onClick={() => navigate('/developing')} // 클릭 시 navigate로 이동
 							className="flex flex-col items-center justify-center text-center my-4 cursor-pointer">
 							<div className="w-[66px] h-[66px] flex flex-col items-center justify-center bg-gray-100 rounded-full shadow-lg">
-								<img src={item.icon} alt={item.title} className="w-8 h-7" />
-								<p className="mt-1 text-sm text-gray-700">{item.title}</p>
+								{item.element}
 							</div>
 						</div>
 					))}
