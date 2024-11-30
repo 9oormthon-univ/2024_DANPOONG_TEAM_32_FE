@@ -30,7 +30,7 @@ export const useFetchKakaoAPI = (sido: string) => {
 			const response: KakaoAPIResponseType = await ky
 				.get(`https://dapi.kakao.com/v2/local/search/address.json?query=${sido}`, {
 					headers: {
-						Authorization: `KakaoAK ${import.meta.env.VITE_API_KEY}`,
+						Authorization: `KakaoAK ${import.meta.env.VITE_KAKAO_MAP_API_KEY}`,
 					},
 				})
 				.json<KakaoAPIResponseType>(); // 응답 타입 지정

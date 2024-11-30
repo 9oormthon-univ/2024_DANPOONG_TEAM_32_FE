@@ -66,7 +66,7 @@ export default function MainLayout() {
 		<main className="flex flex-col h-screen font-pre">
 			{!hideHeaderAndFooter && <Header />}
 			<div
-				className={`flex-1 overflow-y-auto max-w-[980px] w-full mx-auto scrollbar-hide ${
+				className={`flex-1 overflow-y-auto max-w-[980px] w-full mx-auto scrollbar-hide bg-theme-lightgray ${
 					!hideHeaderAndFooter ? 'pb-[60px]' : ''
 				}`}>
 				{shouldAnimate ? (

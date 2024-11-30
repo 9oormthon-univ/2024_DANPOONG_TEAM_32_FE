@@ -1,14 +1,16 @@
 import PageContainer from '@components/PageContainer';
 import PageNavbar from '@components/PageNavbar';
 import { useFetchWordById } from '@hooks/dictionary/useFetchWordById';
+import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export default function DictionaryDetail() {
 	const { pathname } = useLocation();
 
-	const match = pathname.match(/\/(\d+)$/);
-
-	const id = match ? Number(match[1]) : null;
+	const id = useMemo(() => {
+		const match = pathname.match(/\/dictionary\/detail\/(\d+)$/);
+		return match ? parseInt(match[1], 10) : null;
+	}, [pathname]);
 
 	const { data, isLoading, isError } = useFetchWordById(id);
 

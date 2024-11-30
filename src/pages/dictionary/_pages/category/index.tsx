@@ -1,7 +1,7 @@
 import PageContainer from '@components/PageContainer';
 import PageNavbar from '@components/PageNavbar';
 import IconGraph from '@assets/svg/graph.svg?react';
-import SearchBar from './SearchBar';
+import SearchBar from '../../_components/SearchBar';
 import { useState, useEffect } from 'react';
 import { useFetchWordByCategory } from '@hooks/dictionary/useFetchWordByCategory';
 import { useLocation } from 'react-router-dom';
@@ -24,7 +24,6 @@ const categoryNames: { [key: string]: string } = {
 };
 
 export default function CategoryPage() {
-	const [searchWord, setSearchWord] = useState('');
 	const [pageNum, setPageNum] = useState(0);
 	const { pathname } = useLocation();
 
@@ -32,15 +31,6 @@ export default function CategoryPage() {
 	const category = pathname.split('/')[2];
 
 	const { data, isLoading, isError } = useFetchWordByCategory(categoryNames[category] || '', pageNum);
-
-	function inputHandler(event: React.ChangeEvent<HTMLInputElement>) {
-		const inputValue = event.target.value;
-		setSearchWord(inputValue);
-	}
-
-	function onSearchSubmit(searchValue: string) {
-		alert(searchValue);
-	}
 
 	const handleNextPage = () => {
 		setPageNum((prev) => prev + 1);
@@ -54,7 +44,7 @@ export default function CategoryPage() {
 		<PageContainer>
 			<PageNavbar icon={<IconGraph />} title={categoryNames[category] || '카테고리'} />
 			<div className="mt-6">
-				<SearchBar inputHandler={inputHandler} onSearchSubmit={onSearchSubmit} type={categoryNames[category] || ''} />
+				<SearchBar type={categoryNames[category]} />
 			</div>
 			{isLoading ? (
 				<Spinner />
