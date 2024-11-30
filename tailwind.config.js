@@ -37,8 +37,10 @@ export default {
 					main: '#4B628A', // 메인 테마 색상
 					select: '#B9E6E9', // 선택 색상
 					gray: '#D9D9D9', // 회색
+					lightgray: '#FAFAFA',
 					white: '#FFFFFF', // 흰색
 					tag: '#B9E6E9', // 태그 색상
+					alert: '#fdaeb38b',
 				},
 			},
 		},

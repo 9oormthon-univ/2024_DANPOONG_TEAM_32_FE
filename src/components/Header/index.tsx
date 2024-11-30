@@ -3,7 +3,7 @@ import Calendar from '@components/Calendar';
 
 export default function Header() {
 	return (
-		<header className="sticky top-0 z-50 bg-white px-4 py-2 shadow-md h-15">
+		<header className="sticky top-0 z-50 bg-white px-4 py-2 h-15">
 			<div className="flex justify-between items-center">
 				{/* 왼쪽 로고 영역 */}
 				<div className="flex items-center gap-2 ml-3">
