@@ -24,20 +24,18 @@ export default function RegionSelect() {
 	};
 
 	return (
-		<div className="h-100% w-100%">
+		<div className="h-full w-full">
 			<div className="bg-white px-5 pt-8 pb-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
 				<IconMyLocation className="w-[20px] h-[20px]" />
 			</div>
-			<div className="flex flex-col items-center justify-center h-full bg-white px-4">
-				<div className="flex flex-col text-center font-medium my-10">
+			<div className="flex flex-col items-center h-full bg-white px-4">
+				<div className="flex flex-col text-center font-medium py-10">
 					<h2 className="text-3xl text-black">
 						원하시는 <UnderlineText text="지역" />
 					</h2>
 					<h2 className="text-3xl text-black"> 선택해주세요 !</h2>
 				</div>
-				<div
-					className="grid grid-cols-3 gap-6 my-10
-			">
+				<div className="grid grid-cols-3 gap-6 my-10">
 					{regions.map((region) => (
 						<button
 							key={region}
@@ -54,7 +52,7 @@ export default function RegionSelect() {
 				<Button
 					text="다음으로 넘어가기"
 					onClick={handleNext}
-					className="fixed bottom-5 left-1/2 transform -translate-x-1/2"
+					className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-theme-main hover:bg-[#3A4E6F]"
 				/>
 			</div>
 		</div>

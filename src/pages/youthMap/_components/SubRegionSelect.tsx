@@ -39,7 +39,7 @@ export default function SubRegionSelect() {
 						<UnderlineText text="세부지역" />을 선택해주세요!
 					</h2>
 				</div>
-				<div className={`transition-opacity duration-500 w-full max-h-[350px] overflow-y-scroll scrollbar-hide`}>
+				<div className={`transition-opacity duration-500 w-full max-h-full overflow-y-scroll scrollbar-hide`}>
 					{/** 스크롤 가능한 지역 리스트 */}
 					<div className="grid grid-cols-1 gap-4 scrollbar-hide">
 						{subRegions.map((subRegion) => (
@@ -56,10 +56,11 @@ export default function SubRegionSelect() {
 						))}
 					</div>
 				</div>
+				<div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-20 bg-white"></div>
 				<Button
 					text="다음으로 넘어가기"
 					onClick={handleNext}
-					className="fixed bottom-5 left-1/2 transform -translate-x-1/2"
+					className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-theme-main hover:bg-[#3A4E6F]"
 				/>
 			</div>
 		</div>
