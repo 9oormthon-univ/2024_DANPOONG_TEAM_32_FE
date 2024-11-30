@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
 
-export default function OnboardingContainer() {
+export default function WelfareCardContainer() {
 	return <Outlet />;
 }

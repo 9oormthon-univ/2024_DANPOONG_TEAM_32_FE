@@ -16,12 +16,15 @@ import { AnimatePresence, motion } from 'motion/react';
 import Icon from '@components/Icon';
 import UnderlineText from '@components/UnderlineText';
 import Button from '@components/Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function YouthMap() {
 	useKakaoLoader();
 	const mapRef = useRef<kakao.maps.Map>(null);
 	const { position, center, ne, sw, setPosition, setCenter, setNE, setSW } = useMapStore();
 	const { data, isLoading, isError, refetch } = useFetchPublicOffices(ne, sw);
+
+	const navigate = useNavigate();
 
 	const [selectedMarker, setSelectedMarker] = useState<PublicOfficeDataType>();
 	const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
@@ -37,14 +40,31 @@ export default function YouthMap() {
 		const map = mapRef.current;
 		if (!map) return;
 
+		// 초기 바운드 설정
+		const bounds = map.getBounds();
 		setSW({
-			lat: map.getBounds().getSouthWest().getLat(),
-			lng: map.getBounds().getSouthWest().getLng(),
+			lat: bounds.getSouthWest().getLat(),
+			lng: bounds.getSouthWest().getLng(),
 		});
 		setNE({
-			lat: map.getBounds().getNorthEast().getLat(),
-			lng: map.getBounds().getNorthEast().getLng(),
+			lat: bounds.getNorthEast().getLat(),
+			lng: bounds.getNorthEast().getLng(),
 		});
+
+		// 지도가 로드된 후 데이터 가져오기
+		const loadInitialData = () => {
+			console.log('지도가 로드되었습니다.');
+			setTimeout(() => {
+				refetch();
+			}, 1000);
+			kakao.maps.event.removeListener(map, 'tilesloaded', loadInitialData);
+		};
+
+		kakao.maps.event.addListener(map, 'tilesloaded', loadInitialData);
+
+		return () => {
+			kakao.maps.event.removeListener(map, 'tilesloaded', loadInitialData);
+		};
 	}, [mapRef.current]);
 
 	const setCenterToCurrentPosition = () => {
@@ -54,9 +74,6 @@ export default function YouthMap() {
 	const updateCenterWhenMapDragged = useMemo(
 		() =>
 			debounce((map: kakao.maps.Map) => {
-				console.log(map.getCenter());
-				console.log(map.getBounds().getNorthEast());
-				console.log(map.getBounds().getSouthWest());
 				setCenter({
 					lat: map.getCenter().getLat(),
 					lng: map.getCenter().getLng(),
@@ -69,23 +86,33 @@ export default function YouthMap() {
 					lat: map.getBounds().getSouthWest().getLat(),
 					lng: map.getBounds().getSouthWest().getLng(),
 				});
-			}, 500),
+			}, 100),
 		[],
 	);
 
 	const handleMarkerClick = (markData: PublicOfficeDataType) => {
 		setSelectedMarker(markData);
-		console.log(markData);
-		const OFFSET = 0.001; // 약 100미터 정도의 오프셋
+
+		const map = mapRef.current;
+		if (!map) return;
+
+		const lat = Number(markData.latitude);
+		const lng = Number(markData.longitude);
+
+		// 유효한 좌표값인지 확인
+		if (isNaN(lat) || isNaN(lng)) {
+			console.error('유효하지 않은 좌표값:', markData);
+			return;
+		}
+
+		const latOffset = 0.0028;
 
 		setCenter({
-			lat: markData.latitude + OFFSET,
-			lng: markData.longitude,
+			lat: lat - latOffset,
+			lng: lng,
 		});
 
-		if (mapRef.current) {
-			mapRef.current.setLevel(4);
-		}
+		map.setLevel(4);
 		setIsInfoWindowOpen(true);
 	};
 
@@ -167,8 +194,10 @@ export default function YouthMap() {
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
 						transition={{ type: 'spring', stiffness: 120, damping: 20 }}>
-						<div className="flex flex-col justify-center items-center mt-5">
-							<button onClick={closeInfoWindow}>닫기</button>
+						<div className="relative flex flex-col justify-center items-center mt-5">
+							<button onClick={closeInfoWindow} className="absolute right-0 top-[-20px]">
+								<Icon name="CloseBtnIcon" className="w-[20px] h-[20px]" />
+							</button>
 							<div className="flex flex-col items-center">
 								<h1 className="text-xl font-bold my-2">{selectedMarker.publicOfficeName}</h1>
 								<p className="text-lg font-light">{selectedMarker.roadAddress}</p>
@@ -191,12 +220,17 @@ export default function YouthMap() {
 								<Icon name="GiftBoxIcon" className="w-[23px] h-[25px] mr-1" />
 								<Icon name="GiftBoxIcon" className="w-[46px] h-[50px]" />
 							</div>
-							<div className="mt-8 flex flex-col">
-								<Button text="내 복지카드 확인하러 가기" onClick={() => {}} />
+							<div className="mt-12 flex flex-col">
+								<Button
+									text="내 복지카드 확인하러 가기"
+									onClick={() => {
+										navigate('/create-welfare-card/select-birth');
+									}}
+								/>
 								<Button
 									text="전체 사업 확인하기"
 									onClick={() => {}}
-									className=" bg-white text-[#BBBBBB] shadow-none hover:bg-white"
+									className="bg-white !text-[#BBBBBB] shadow-none hover:bg-white"
 								/>
 							</div>
 						</div>

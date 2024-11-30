@@ -17,36 +17,67 @@ export default function MainLayout() {
 	const [prevPage, setPrevPage] = useState(0);
 	const [currPage, setCurrPage] = useState(0);
 
+	// 네비게이션 메뉴 순서 정의
+	const navOrder = {
+		'/home': 0,
+		'/welfare-card': 1,
+		'/dictionary': 2,
+		'/my-page': 3,
+	};
+
+	const [prevPath, setPrevPath] = useState(location.pathname);
+
 	useEffect(() => {
-		// 간단히 `pathname`의 길이를 기준으로 페이지 순서 계산
+		// 이전 경로 저장
+		setPrevPath(location.pathname);
+		// 페이지 깊이 계산
 		const pageOrder = location.pathname.split('/').length;
 		setPrevPage(currPage);
 		setCurrPage(pageOrder);
 	}, [location.pathname]);
 
+	const getAnimationDirection = (): number => {
+		// 네비게이션 메뉴 간 이동시
+		if (navOrder.hasOwnProperty(location.pathname) && navOrder.hasOwnProperty(prevPath)) {
+			console.log(navOrder[location.pathname as keyof typeof navOrder], navOrder[prevPath as keyof typeof navOrder]);
+
+			return navOrder[location.pathname as keyof typeof navOrder] > navOrder[prevPath as keyof typeof navOrder]
+				? -1
+				: 1;
+		}
+		// 세부 페이지 이동시
+		return currPage > prevPage ? 1 : -1;
+	};
+
 	const AppAni = {
-		init: {
-			x: prevPage < currPage ? '-100%' : '100%', // 이전 페이지와 비교해 방향 결정
+		init: (direction: number) => ({
+			x: `${direction * -100}%`,
 			opacity: 0,
 			transition: { type: 'spring', stiffness: 120, damping: 20 },
-		},
+		}),
 		animate: {
 			x: 0,
 			opacity: 1,
 			transition: { type: 'spring', stiffness: 120, damping: 20 },
 		},
-	};
+	} as const;
 
 	return (
 		<main className="flex flex-col h-screen font-pre">
 			{!hideHeaderAndFooter && <Header />}
 			<div
-				className={`flex-1 overflow-y-auto max-w-[980px] w-full mx-auto scrollbar-hide ${
+				className={`flex-1 overflow-y-auto max-w-[980px] w-full mx-auto scrollbar-hide bg-theme-lightgray ${
 					!hideHeaderAndFooter ? 'pb-[60px]' : ''
 				}`}>
 				{shouldAnimate ? (
-					<AnimatePresence mode="wait">
-						<motion.div key={location.pathname} initial="init" animate="animate" exit="exit" variants={AppAni}>
+					<AnimatePresence mode="wait" custom={getAnimationDirection()}>
+						<motion.div
+							key={location.pathname}
+							custom={getAnimationDirection()}
+							initial="init"
+							animate="animate"
+							exit="exit"
+							variants={AppAni}>
 							<Outlet />
 						</motion.div>
 					</AnimatePresence>

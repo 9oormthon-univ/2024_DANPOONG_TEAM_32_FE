@@ -11,7 +11,10 @@ import MyMarkerIcon from '@assets/svg/my-marker.svg?react';
 import SelectedMarkerIcon from '@assets/svg/selected-marker.svg?react';
 import MarkerIcon from '@assets/svg/marker.svg?react';
 import MyLocationIcon from '@assets/svg/my-location.svg?react';
-
+import CloseBtnIcon from '@assets/svg/close-btn.svg?react';
+import DevelopingIcon from '@assets/svg/tool.svg?react';
+import OnboardingFinishIcon from '@assets/svg/pangpare.svg?react';
+import KakaoIcon from '@assets/svg/kakao.svg?react';
 const iconMap = {
 	DollarIcon,
 	CityIcon,
@@ -26,6 +29,10 @@ const iconMap = {
 	SelectedMarkerIcon,
 	MarkerIcon,
 	MyLocationIcon,
+	CloseBtnIcon,
+	DevelopingIcon,
+	OnboardingFinishIcon,
+	KakaoIcon,
 	// svg 파일 추가..
 } as const;
 

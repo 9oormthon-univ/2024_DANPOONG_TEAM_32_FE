@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+import tailwindScrollbarHide from 'tailwind-scrollbar-hide';
+
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		fontFamily: {
 			pre: ['Pretendard'],
 			tmon: ['TMONTium'],
+			yangjin: ['Yangjin'],
 		},
 		extend: {
 			dropShadow: {
@@ -15,20 +18,32 @@ export default {
 					'0%, 39%, 100%': { opacity: 0 },
 					'40%': { opacity: 1 },
 				},
+				celebration: {
+					'0%, 100%': { transform: 'scale(1) rotate(0deg)' },
+					'50%': { transform: 'scale(1.1) rotate(5deg)' },
+				},
+				floating: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
 			},
 			animation: {
 				fade: 'fade 1.2s infinite ease-in-out',
+				celebration: 'celebration 2s ease-in-out infinite',
+				floating: 'floating 2s ease-in-out infinite',
 			},
 			colors: {
 				theme: {
 					main: '#4B628A', // 메인 테마 색상
 					select: '#B9E6E9', // 선택 색상
 					gray: '#D9D9D9', // 회색
+					lightgray: '#FAFAFA',
 					white: '#FFFFFF', // 흰색
 					tag: '#B9E6E9', // 태그 색상
+					alert: '#fdaeb38b',
 				},
 			},
 		},
 	},
-	plugins: [require('tailwind-scrollbar-hide')],
+	plugins: [tailwindScrollbarHide],
 };
