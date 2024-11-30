@@ -6,11 +6,11 @@ import UnderlineText from '@components/UnderlineText';
 import useAuthStore from '@stores/useAuthStore';
 
 // 이미지 import
-import Slide1 from '@assets/svg/onboarding-1.svg?react';
-import Slide2 from '@assets/svg/onboarding-2.svg?react';
-import Slide3 from '@assets/svg/onboarding-3.svg?react';
-import Slide4 from '@assets/svg/onboarding-4.svg?react';
-import Slide5 from '@assets/svg/onboarding-5.svg?react';
+import slide1 from '@assets/images/onboarding-1.png';
+import slide2 from '@assets/images/onboarding-2.png';
+import slide3 from '@assets/images/onboarding-3.png';
+import slide4 from '@assets/images/onboarding-4.png';
+import slide5 from '@assets/images/onboarding-5.png';
 import Button from '@components/Button';
 
 export default function Login() {
@@ -35,13 +35,8 @@ export default function Login() {
 	};
 
 	// 이미지 배열
-	const slides = [
-		{ element: <Slide1 className="w-full h-auto" /> },
-		{ element: <Slide2 className="w-full h-auto" /> },
-		{ element: <Slide3 className="w-full h-auto" /> },
-		{ element: <Slide4 className="w-full h-auto" /> },
-		{ element: <Slide5 className="w-full h-auto" /> },
-	];
+	const slides = [slide1, slide2, slide3, slide4, slide5];
+
 	const nextSlide = () => {
 		setCurrentSlide((prev) => (prev + 1) % slides.length);
 	};
@@ -153,8 +148,8 @@ export default function Login() {
 						className="flex transition-transform duration-500 ease-in-out"
 						style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
 						{slides.map((slide, index) => (
-							<div key={index} className="min-w-full flex justify-center items-center">
-								{slide.element}
+							<div key={index} className="min-w-full flex justify-center items-center pointer-events-none">
+								<img src={slide} />
 							</div>
 						))}
 					</div>
