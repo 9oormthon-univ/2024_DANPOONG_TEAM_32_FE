@@ -5,6 +5,7 @@ import IconBookmarkInactive from '@assets/svg/bookmark-inactive.svg?react';
 import IconArrowRight from '@assets/svg/arrow-right.svg?react';
 import { DictionaryDataType } from '@type/wordData.type';
 import Spinner from '@components/Spinner';
+import RelatedWelfare from './RelatedWelfare';
 
 interface WordListProps {
 	isLoading: boolean;
@@ -44,12 +45,10 @@ export default function WordList({ isLoading, data }: WordListProps) {
 								</div>
 							</div>
 							<div className="pt-2">
-								<div className={`inline-block ${relatedWelfare && 'border'} rounded-2xl bg-theme-select px-2`}>
-									<span className="text-sm text-white">{relatedWelfare}</span>
-								</div>
+								<RelatedWelfare value={relatedWelfare} />
 							</div>
 						</div>
-						<div className="flex items-center">
+						<div className="px-1 flex items-center">
 							<IconArrowRight />
 						</div>
 					</div>
