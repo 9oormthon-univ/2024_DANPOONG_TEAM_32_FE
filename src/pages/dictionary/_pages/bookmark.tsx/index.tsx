@@ -1,29 +1,15 @@
 import PageContainer from '@components/PageContainer';
 import PageNavbar from '@components/PageNavbar';
-import IconGraph from '@assets/svg/graph.svg?react';
 import SearchBar from '../../_components/SearchBar';
 import { useState, useEffect } from 'react';
-import { useFetchWordByCategory } from '@hooks/dictionary/useFetchWordByCategory';
-import { useLocation } from 'react-router-dom';
 import WordList from '@pages/dictionary/_components/WordList';
 import Spinner from '@components/Spinner';
+import { useFetchWordBookmark } from '@hooks/dictionary/useFetchWordBookmark';
 
-// 카테고리 매핑
-const categoryNames: { [key: string]: string } = {
-	finance: '금융',
-	society: '사회',
-	economy: '경제',
-	public: '공공',
-};
-
-export default function Category() {
+export default function Bookmark() {
 	const [pageNum, setPageNum] = useState(0);
-	const { pathname } = useLocation();
 
-	// 경로에서 카테고리 추출
-	const category = pathname.split('/')[2];
-
-	const { data, isLoading, isError, refetch } = useFetchWordByCategory(categoryNames[category] || '', pageNum);
+	const { data, isLoading, isError, refetch } = useFetchWordBookmark(pageNum);
 
 	const handleNextPage = () => {
 		setPageNum((prev) => prev + 1);
@@ -35,10 +21,10 @@ export default function Category() {
 
 	return (
 		<PageContainer>
-			<PageNavbar icon={<IconGraph />} title={categoryNames[category].concat(' 용어사전')} />
-			<div className="mt-6">
-				<SearchBar type={categoryNames[category]} />
-			</div>
+			<PageNavbar icon="" title="북마크" />
+			{/* <div className="mt-6">
+				<SearchBar type="북마크" />
+			</div> */}
 			{isLoading ? (
 				<Spinner />
 			) : (

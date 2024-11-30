@@ -5,6 +5,7 @@ export interface ICommunication {
 	post(url: string, data: any, options?: Options): Promise<any>;
 	put(url: string, data: any, options?: Options): Promise<any>;
 	delete(url: string, options?: Options): Promise<any>;
+	patch(url: string, data: any, options?: Options): Promise<any>;
 }
 
 export class Http implements ICommunication {
@@ -64,6 +65,15 @@ export class Http implements ICommunication {
 			return await this.httpClient.delete(url, options).json();
 		} catch (error) {
 			console.error('DELETE 요청 오류:', error);
+			throw error;
+		}
+	}
+
+	async patch(url: string, data: any, options?: Options) {
+		try {
+			return await this.httpClient.patch(url, { json: data, ...options }).json();
+		} catch (error) {
+			console.error('PATCH 요청 오류:', error);
 			throw error;
 		}
 	}

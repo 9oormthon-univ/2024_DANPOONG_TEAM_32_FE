@@ -51,7 +51,7 @@ export default function Dictionary() {
 					<SearchBar type="" />
 				</div>
 			</div>
-			<div className="border border-2 border-theme-gray rounded-3xl px-5 py-4">
+			<div className="border border-theme-gray drop-shadow-md bg-white rounded-3xl px-5 py-4">
 				{MENU_ITEMS.map((item) => (
 					<div
 						key={item.route}

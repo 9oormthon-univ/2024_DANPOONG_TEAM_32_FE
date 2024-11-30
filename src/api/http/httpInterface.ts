@@ -40,6 +40,14 @@ export class HttpInterface {
 		});
 	}
 
+	async updateBookmark(params: { word_id: number }) {
+		return this.apiClient.patch(`word/bookmark/${params.word_id}`, { params });
+	}
+
+	async getWordBookmark(params: { page_num: number }) {
+		return this.apiClient.get(`word/book-mark/${params.page_num}`);
+	}
+
 	async getWelfareByCategory(params: { policy_id: number }) {
 		return this.apiClient.get(`policy/recommend?cardNum=${params.policy_id}`);
 	}
