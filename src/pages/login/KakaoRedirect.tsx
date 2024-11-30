@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function KakaoRedirect() {
-	const { login, checkAuth } = useAuthStore();
+	const { kakaoLogin, accessToken, checkAuth } = useAuthStore();
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -11,7 +11,7 @@ export default function KakaoRedirect() {
 
 		const code = new URLSearchParams(window.location.search).get('code');
 		if (code) {
-			login(code);
+			kakaoLogin(code);
 			navigate('/home');
 		}
 	}, []);

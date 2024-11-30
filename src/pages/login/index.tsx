@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 
@@ -15,21 +14,25 @@ import slide5 from '@assets/images/onboarding_5.png';
 import Button from '@components/Button';
 
 export default function Login() {
-	const { initKakao, login, logout, checkAuth, isAuthenticated } = useAuthStore();
+	const { initKakao, isAuthenticated } = useAuthStore();
 	const navigate = useNavigate();
 	const [currentSlide, setCurrentSlide] = useState(0);
 
 	useEffect(() => {
 		initKakao();
+		initKakao();
+
 		if (isAuthenticated) {
 			navigate('/home', { replace: true });
 		}
-	}, []);
+	}, [isAuthenticated]);
 
-	const handleLogin = () => {
-		window.Kakao.Auth.authorize({
-			redirectUri: `${import.meta.env.VITE_REDIRECT_URI}`,
-		});
+	const handleKakaoLogin = () => {
+		const REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;
+		const REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI;
+		const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+
+		window.location.href = kakaoAuthUrl;
 	};
 
 	// 이미지 배열
@@ -170,7 +173,7 @@ export default function Login() {
 			<Button
 				text="카카오 로그인"
 				icon="KakaoIcon"
-				onClick={handleLogin}
+				onClick={handleKakaoLogin}
 				className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-yellow-400 !text-black font-light py-2 px-4 rounded-md text-lg"
 			/>
 		</div>
