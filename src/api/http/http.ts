@@ -23,7 +23,6 @@ export class Http implements ICommunication {
 					(request) => {
 						console.log(`Requesting: ${request.url}`);
 						const accessToken = localStorage.getItem('accessToken');
-						console.log('accessToken', accessToken);
 						if (accessToken) {
 							request.headers.set('Authorization', `Bearer ${accessToken}`);
 						}

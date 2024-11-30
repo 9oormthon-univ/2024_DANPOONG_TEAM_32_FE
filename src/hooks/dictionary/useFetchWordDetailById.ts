@@ -1,20 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
 import useNetwork from '@stores/networkStore';
-import { WordSearchDataType } from '@type/wordSearchData.type';
+import { WordDetailDataType } from '@type/wordDetailData.type';
 
 interface ResponseType {
-	statusCode: number;
+	data: WordDetailDataType;
 	message: string;
-	data: WordSearchDataType;
+	statusCode: number;
 }
 
-export const useFetchWordSearch = (type: string, word: string) => {
+export const useFetchWordDetailById = (word_id: number) => {
 	const httpInterface = useNetwork((state) => state.httpInterface);
 
 	const { data, isLoading, isError, refetch } = useQuery<ResponseType>({
-		queryKey: ['word-search', type, word],
-		queryFn: () => httpInterface.getWordSearch({ type, word }),
-		enabled: false,
+		queryKey: ['word-by-category', word_id],
+		queryFn: () =>
+			httpInterface.getWordById({
+				word_id,
+			}),
 	});
 
 	return { data, isLoading, isError, refetch };

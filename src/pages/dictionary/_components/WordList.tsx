@@ -32,7 +32,7 @@ export default function WordList({ isLoading, data }: WordListProps) {
 				data?.data.content.map(({ wordId, term, isBookmark, relatedWelfare }) => (
 					<div
 						key={wordId}
-						onClick={() => navigate(`${wordId}`)}
+						onClick={() => navigate(`/dictionary/detail/${wordId}`)}
 						className="flex justify-between border p-3 mb-2 rounded-2xl cursor-pointer">
 						<div>
 							<div className="flex">
