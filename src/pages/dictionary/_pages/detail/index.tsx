@@ -1,6 +1,7 @@
 import PageContainer from '@components/PageContainer';
 import PageNavbar from '@components/PageNavbar';
 import { useFetchWordById } from '@hooks/dictionary/useFetchWordById';
+import RelatedWelfare from '@pages/dictionary/_components/RelatedWelfare';
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -19,17 +20,15 @@ export default function DictionaryDetail() {
 			{!isLoading && (
 				<>
 					<PageNavbar icon={''} title={!isLoading && data.data.term} />
-					<div className="mt-2">
-						<div className={`inline-block ${data.data.relatedWelfare && 'border'} rounded-2xl bg-theme-select px-2`}>
-							<span className="text-sm text-white">{data.data.relatedWelfare}</span>
+					<div className="mt-4">
+						<RelatedWelfare value={data.data.relatedWelfare} />
+						<div className="mt-10">
+							<div className="text-xl font-medium">설명</div>
+							<div className="mt-2">{data.data.description}</div>
 						</div>
 						<div className="mt-10">
-							<div className="text-xl font-bold">설명</div>
-							<div>{data.data.description}</div>
-						</div>
-						<div className="mt-10">
-							<div className="text-xl font-bold">예시</div>
-							<div>{data.data.example}</div>
+							<div className="text-xl font-medium">예시</div>
+							<div className="mt-2">{data.data.example}</div>
 						</div>
 					</div>
 				</>

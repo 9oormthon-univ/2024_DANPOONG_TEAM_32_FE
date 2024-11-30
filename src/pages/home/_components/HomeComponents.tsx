@@ -1,4 +1,4 @@
-import LoadmapCard from '@pages/home/_components/LoadmapCard';
+import LoadmapCard from '@pages/home/_components/RoadmapCard';
 import WelfareCard from '@pages/home/_components/WelfareCard';
 
 export default function HomeComponents() {

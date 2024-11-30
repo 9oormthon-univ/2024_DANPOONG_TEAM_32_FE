@@ -1,8 +1,10 @@
-import { useRegionStore } from '@stores/useRegionStore';
-import { checkSiDo } from '@utils/checkSiDo';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFetchKakaoAPI } from '../_hooks/useFetchKakaoAPI';
+
+import { useRegionStore } from '@stores/useRegionStore';
+import { checkSiDo } from '@utils/checkSiDo';
+import { useFetchKakaoAPI } from '@pages/youthMap/_hooks/useFetchKakaoAPI';
+import Spinner from '@components/Spinner';
 
 export default function LoadingScreen() {
 	const navigate = useNavigate();
@@ -47,14 +49,6 @@ export default function LoadingScreen() {
 				<h2 className="text-3xl text-black">이동하고 있어요.</h2>
 			</div>
 			{loading && <Spinner />}
-		</div>
-	);
-}
-
-function Spinner() {
-	return (
-		<div className="flex items-center justify-center">
-			<div className="w-8 h-8 border-4 border-theme-main border-t-transparent rounded-full animate-spin"></div>
 		</div>
 	);
 }

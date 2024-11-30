@@ -1,6 +1,8 @@
-import useCreateCardInfoStore from '@stores/useCreateCardInfoStore';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import Spinner from '@components/Spinner';
+import useCreateCardInfoStore from '@stores/useCreateCardInfoStore';
 
 export default function LoadingScreen() {
 	const navigate = useNavigate();
@@ -35,14 +37,6 @@ export default function LoadingScreen() {
 				<h2 className="text-3xl text-black">고르는 중이에요..</h2>
 			</div>
 			{loading && <Spinner />}
-		</div>
-	);
-}
-
-function Spinner() {
-	return (
-		<div className="flex items-center justify-center">
-			<div className="w-8 h-8 border-4 border-theme-main border-t-transparent rounded-full animate-spin"></div>
 		</div>
 	);
 }

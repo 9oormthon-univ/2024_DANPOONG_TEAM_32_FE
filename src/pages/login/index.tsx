@@ -6,11 +6,11 @@ import UnderlineText from '@components/UnderlineText';
 import useAuthStore from '@stores/useAuthStore';
 
 // 이미지 import
-import slide1 from '@assets/images/onboarding.png';
-import slide2 from '@assets/images/onboarding_2.png';
-import slide3 from '@assets/images/onboarding_3.png';
-import slide4 from '@assets/images/onboarding_4.png';
-import slide5 from '@assets/images/onboarding_5.png';
+import slide1 from '@assets/images/onboarding-1.png';
+import slide2 from '@assets/images/onboarding-2.png';
+import slide3 from '@assets/images/onboarding-3.png';
+import slide4 from '@assets/images/onboarding-4.png';
+import slide5 from '@assets/images/onboarding-5.png';
 import Button from '@components/Button';
 
 export default function Login() {
@@ -48,11 +48,9 @@ export default function Login() {
 	const handlers = useSwipeable({
 		onSwipedLeft: () => nextSlide(),
 		onSwipedRight: () => prevSlide(),
-		// preventDefaultTouchmoveEvent: '',
 		trackMouse: true,
 	});
 
-	// 슬라이드 내용 배열
 	// 슬라이드 내용 배열
 	const slideContents = [
 		{
@@ -133,8 +131,6 @@ export default function Login() {
 		},
 	];
 
-	// ... 기존 코드 ...
-
 	useEffect(() => {
 		const interval = setInterval(() => {
 			nextSlide();
@@ -147,12 +143,14 @@ export default function Login() {
 		<div {...handlers} className="flex flex-col items-center justify-between h-screen bg-gray-50">
 			{/* Center Content */}
 			<div className="flex flex-col items-center">
-				<div className="relative w-full overflow-hidden">
+				<div className="flex justify-center overflow-x-hidden">
 					<div
 						className="flex transition-transform duration-500 ease-in-out"
 						style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
 						{slides.map((slide, index) => (
-							<img key={index} src={slide} alt={`slide ${index + 1}`} className="w-full h-auto" />
+							<div key={index} className="min-w-full flex justify-center items-center pointer-events-none">
+								<img src={slide} />
+							</div>
 						))}
 					</div>
 				</div>
@@ -173,7 +171,7 @@ export default function Login() {
 				text="카카오 로그인"
 				icon="KakaoIcon"
 				onClick={handleKakaoLogin}
-				className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-yellow-400 !text-black font-light py-2 px-4 rounded-md text-lg"
+				className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-[#FEE500] !text-black font-light py-2 px-4 rounded-md text-lg hover:bg-[#FEE500]"
 			/>
 		</div>
 	);
