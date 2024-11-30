@@ -1,16 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 import IconBookmarkActive from '@assets/svg/bookmark-active.svg?react';
 import IconBookmarkInactive from '@assets/svg/bookmark-inactive.svg?react';
 import IconArrowRight from '@assets/svg/arrow-right.svg?react';
 import { DictionaryDataType } from '@type/wordData.type';
-import { useNavigate } from 'react-router-dom';
-
-function Spinner() {
-	return (
-		<div className="flex items-center justify-center">
-			<div className="w-8 h-8 border-4 border-theme-main border-t-transparent rounded-full animate-spin"></div>
-		</div>
-	);
-}
+import Spinner from '@components/Spinner';
 
 interface WordListProps {
 	isLoading: boolean;

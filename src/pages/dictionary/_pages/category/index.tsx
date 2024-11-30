@@ -6,14 +6,7 @@ import { useState, useEffect } from 'react';
 import { useFetchWordByCategory } from '@hooks/dictionary/useFetchWordByCategory';
 import { useLocation } from 'react-router-dom';
 import WordList from '@pages/dictionary/_components/WordList';
-
-function Spinner() {
-	return (
-		<div className="flex items-center justify-center">
-			<div className="w-8 h-8 border-4 border-theme-main border-t-transparent rounded-full animate-spin"></div>
-		</div>
-	);
-}
+import Spinner from '@components/Spinner';
 
 // 카테고리 매핑
 const categoryNames: { [key: string]: string } = {
