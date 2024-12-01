@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import { debounce } from 'lodash';
 
@@ -29,14 +29,14 @@ export default function YouthMap() {
 	const [selectedMarker, setSelectedMarker] = useState<PublicOfficeDataType>();
 	const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		// 사용자 현재 위치 받아오기
 		navigator.geolocation.watchPosition((pos) => {
 			setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude });
 		});
 	}, []);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const map = mapRef.current;
 		if (!map) return;
 
@@ -189,7 +189,7 @@ export default function YouthMap() {
 			<AnimatePresence>
 				{isInfoWindowOpen && selectedMarker?.latitude && selectedMarker?.longitude && (
 					<motion.div
-						className="absolute z-[51] bottom-[-50px] left-0 h-[572px] rounded-2xl w-full bg-[#FFFFFF] p-4"
+						className="absolute z-[51] bottom-[-40px] left-0 h-[572px] rounded-2xl w-full bg-[#FFFFFF] p-4"
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
@@ -220,17 +220,19 @@ export default function YouthMap() {
 								<Icon name="GiftBoxIcon" className="w-[23px] h-[25px] mr-1" />
 								<Icon name="GiftBoxIcon" className="w-[46px] h-[50px]" />
 							</div>
-							<div className="mt-12 flex flex-col">
+							<div className="mt-12 flex flex-col items-center">
 								<Button
 									text="내 복지카드 확인하러 가기"
 									onClick={() => {
 										navigate('/create-welfare-card/select-birth');
 									}}
+									className="!relative"
 								/>
+
 								<Button
 									text="전체 사업 확인하기"
 									onClick={() => {}}
-									className="bg-white !text-[#BBBBBB] shadow-none hover:bg-white"
+									className="!relative bg-white !text-[#BBBBBB] shadow-none hover:bg-white"
 								/>
 							</div>
 						</div>
