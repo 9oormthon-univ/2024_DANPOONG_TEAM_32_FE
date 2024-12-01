@@ -37,17 +37,18 @@ export default function Dictionary() {
 
 	return (
 		<PageContainer>
-			<div>
-				<div className="flex flex-col items-center pt-10">
-					<div className="flex flex-col text-center text-2xl pt-10">
+			<div className="flex flex-col items-center gap-8">
+				<div className="flex flex-col items-center">
+					<div className="flex flex-col text-center text-2xl pt-8">
 						<div>궁금했던 용어,</div>
 						<div>유맵이 다 알려드릴게요!</div>
 					</div>
 				</div>
-				<div className="translate-y-[-10%] flex justify-center">
-					<IconGraduationCap />
+				<div className="relative flex justify-center items-center">
+					<div className="absolute w-[69.81px] h-[69.81px] bg-[#B9E6E9] blur-[33px] transform top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+					<IconGraduationCap className="z-50" />
 				</div>
-				<div className="translate-y-[-100%]">
+				<div className="w-full">
 					<SearchBar type="" />
 				</div>
 			</div>

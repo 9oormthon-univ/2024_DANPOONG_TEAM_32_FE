@@ -28,11 +28,11 @@ export default function SubRegionSelect() {
 	};
 
 	return (
-		<div className="w-100% h-100%">
+		<div className="w-full h-full">
 			<div className="bg-white px-5 pt-8 pb-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
 				<IconMyLocation className="w-[20px] h-[20px]" />
 			</div>
-			<div className="flex flex-col items-center justify-center h-full bg-white px-4">
+			<div className="flex flex-col items-center h-full bg-white px-4">
 				<div className="flex flex-col text-center font-medium my-10">
 					<h2 className="text-3xl text-black">{checkSiDo(selectedRegion)}를 선택하셨네요! </h2>
 					<h2 className="text-3xl text-black">
