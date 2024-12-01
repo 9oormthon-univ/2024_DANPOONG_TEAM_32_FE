@@ -13,9 +13,11 @@ export default function PrivacyAndSecurity() {
 			<PageNavbar icon={<IconKey />} title="개인정보 및 보안" />
 			<div className="flex flex-col items-center pt-10">
 				<div className="flex justify-center items-center m-2">
-					<IconMan />
-					<div className="absolute" onClick={() => alert('프로필 사진 변경')}>
-						<IconEditProfile className="relative left-[115%] translate-y-[115%] cursor-pointer" />
+					<div>
+						<IconMan />
+						<div className="relative translate-x-[60px] translate-y-[-23px]" onClick={() => alert('프로필 사진 변경')}>
+							<IconEditProfile className="cursor-pointer" />
+						</div>
 					</div>
 				</div>
 			</div>
