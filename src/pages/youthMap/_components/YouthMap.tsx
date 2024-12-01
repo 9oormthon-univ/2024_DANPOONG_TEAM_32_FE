@@ -226,7 +226,6 @@ export default function YouthMap() {
 									onClick={() => {
 										navigate('/create-welfare-card/select-birth');
 									}}
-									className="bg-theme-main hover:bg-[#3A4E6F]"
 								/>
 								<Button
 									text="전체 사업 확인하기"
