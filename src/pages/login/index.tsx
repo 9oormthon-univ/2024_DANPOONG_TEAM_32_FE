@@ -171,7 +171,7 @@ export default function Login() {
 				text="카카오 로그인"
 				icon="KakaoIcon"
 				onClick={handleKakaoLogin}
-				className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-[#FEE500] !text-black font-light py-2 px-4 rounded-md text-lg hover:bg-[#FEE500]"
+				className="fixed bottom-5 left-1/2 transform -translate-x-1/2 !text-black font-light py-2 px-4 text-lg !bg-[#FEE500] !hover:bg-[#FEE500]"
 			/>
 		</div>
 	);
