@@ -17,7 +17,7 @@ export default function Footer() {
 	return (
 		<nav className="fixed bottom-0 z-50 left-0 w-full bg-white shadow-t-md h-[68px]">
 			{/* 각 네비게이션 아이콘 */}
-			<div className="min-w-[370px] max-w-[480px] flex justify-between items-center mx-auto px-4 py-2 grid grid-cols-5 gap-4">
+			<div className="min-w-[370px] max-w-[480px] flex justify-between items-center mx-auto px-3 py-2 grid grid-cols-5 gap-4">
 				<button
 					onClick={() => navigate('/home')}
 					className={`flex flex-col items-center ${useMatch('/home/*') ? 'text-theme-main' : 'text-theme-gray'}`}>

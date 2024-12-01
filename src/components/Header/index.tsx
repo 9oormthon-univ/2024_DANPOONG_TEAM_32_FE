@@ -8,7 +8,7 @@ export default function Header() {
 	const navigate = useNavigate();
 
 	return (
-		<header className="sticky top-0 z-50 bg-white px-7 py-2">
+		<header className="sticky top-0 z-50 bg-white px-5 py-0.5">
 			<div className="flex justify-between items-center">
 				{/* 왼쪽 로고 영역 */}
 				<div className="flex justify-center items-center">
