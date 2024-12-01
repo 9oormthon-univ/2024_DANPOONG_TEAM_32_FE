@@ -52,7 +52,7 @@ export default function RegionSelect() {
 				<Button
 					text="다음으로 넘어가기"
 					onClick={handleNext}
-					className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-theme-main hover:bg-[#3A4E6F]"
+					className="fixed bottom-5 left-1/2 transform -translate-x-1/2"
 				/>
 			</div>
 		</div>

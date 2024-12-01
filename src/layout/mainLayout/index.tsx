@@ -39,7 +39,7 @@ export default function MainLayout() {
 	const getAnimationDirection = (): number => {
 		// 네비게이션 메뉴 간 이동시
 		if (navOrder.hasOwnProperty(location.pathname) && navOrder.hasOwnProperty(prevPath)) {
-			console.log(navOrder[location.pathname as keyof typeof navOrder], navOrder[prevPath as keyof typeof navOrder]);
+			// console.log(navOrder[location.pathname as keyof typeof navOrder], navOrder[prevPath as keyof typeof navOrder]);
 
 			return navOrder[location.pathname as keyof typeof navOrder] > navOrder[prevPath as keyof typeof navOrder]
 				? -1
@@ -63,29 +63,31 @@ export default function MainLayout() {
 	} as const;
 
 	return (
-		<main className="flex flex-col h-screen font-pre">
-			{!hideHeaderAndFooter && <Header />}
-			<div
-				className={`flex-1 overflow-y-auto max-w-[980px] w-full mx-auto scrollbar-hide bg-theme-lightgray ${
-					!hideHeaderAndFooter ? 'pb-[60px]' : ''
-				}`}>
-				{shouldAnimate ? (
-					<AnimatePresence mode="wait" custom={getAnimationDirection()}>
-						<motion.div
-							key={location.pathname}
-							custom={getAnimationDirection()}
-							initial="init"
-							animate="animate"
-							exit="exit"
-							variants={AppAni}>
-							<Outlet />
-						</motion.div>
-					</AnimatePresence>
-				) : (
-					<Outlet />
-				)}
+		<div className="flex flex-col items-center h-screen font-pre">
+			<div className="min-w-[370px] max-w-[480px] w-full">
+				{!hideHeaderAndFooter && <Header />}
+				<div
+					className={`flex-1 overflow-y-auto w-full scrollbar-hide bg-theme-lightgray ${
+						!hideHeaderAndFooter ? 'pb-[60px]' : ''
+					}`}>
+					{shouldAnimate ? (
+						<AnimatePresence mode="wait" custom={getAnimationDirection()}>
+							<motion.div
+								key={location.pathname}
+								custom={getAnimationDirection()}
+								initial="init"
+								animate="animate"
+								exit="exit"
+								variants={AppAni}>
+								<Outlet />
+							</motion.div>
+						</AnimatePresence>
+					) : (
+						<Outlet />
+					)}
+				</div>
+				{!hideHeaderAndFooter && <Footer />}
 			</div>
-			{!hideHeaderAndFooter && <Footer />}
-		</main>
+		</div>
 	);
 }

@@ -11,7 +11,7 @@ export default function Button({ text, onClick, className = '', icon }: ButtonPr
 	return (
 		<button
 			onClick={onClick}
-			className={`absolute w-[334px] h-[54px] py-3 px-6 rounded-lg font-bold text-lg shadow-md text-white transition flex items-center justify-center ${className}`}>
+			className={`absolute w-[334px] h-[54px] py-3 px-6 rounded-xl font-bold text-lg shadow-md text-white transition flex items-center justify-center bg-theme-main hover:bg-[#3A4E6F] ${className}`}>
 			{icon && <Icon name={icon} className="absolute left-4 w-6 h-6" />}
 			{text}
 		</button>
