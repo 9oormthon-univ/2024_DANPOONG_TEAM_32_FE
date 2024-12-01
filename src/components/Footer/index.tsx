@@ -15,9 +15,9 @@ export default function Footer() {
 	const navigate = useNavigate();
 
 	return (
-		<nav className="fixed bottom-0 z-50 left-0 w-full bg-white shadow-t-md h-[68px]">
+		<nav className="fixed bottom-0 z-50 left-0 w-full bg-white rounded-t-xl shadow-[0px_0px_4px_1px_rgba(0,0,0,0.25)] h-[68px]">
 			{/* 각 네비게이션 아이콘 */}
-			<div className="min-w-[370px] max-w-[480px] flex justify-between items-center mx-auto px-3 py-2 grid grid-cols-5 gap-4">
+			<div className="min-w-[370px] max-w-[480px] flex justify-between items-center mx-auto px-4 py-2 grid grid-cols-5 gap-4">
 				<button
 					onClick={() => navigate('/home')}
 					className={`flex flex-col items-center ${useMatch('/home/*') ? 'text-theme-main' : 'text-theme-gray'}`}>
@@ -40,7 +40,7 @@ export default function Footer() {
 				<div>
 					<button
 						onClick={() => navigate('/youth-map')}
-						className="rounded-full w-20 h-20 absolute top-[-45%] left-[50%] translate-x-[-50%]">
+						className="rounded-full w-[5.6rem] h-[5.6rem] absolute top-[-50%] left-[50%] translate-x-[-50%]">
 						<div className="flex items-center justify-center">
 							{useMatch('/youth-map/*') ? <IconYouthMapActive /> : <IconYouthMapInactive />}
 						</div>
