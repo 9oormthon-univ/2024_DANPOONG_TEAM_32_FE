@@ -28,6 +28,9 @@ export default function MainLayout() {
 	const [prevPath, setPrevPath] = useState(location.pathname);
 
 	useEffect(() => {
+		// 페이지 변경 시 스크롤을 맨 위로
+		window.scrollTo(0, 0);
+
 		// 이전 경로 저장
 		setPrevPath(location.pathname);
 		// 페이지 깊이 계산
