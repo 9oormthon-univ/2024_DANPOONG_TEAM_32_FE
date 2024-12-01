@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import useAuthStore from '@stores/useAuthStore';
 
 import MainLayout from '@layout/mainLayout';
@@ -24,7 +24,7 @@ const mainRoutes = () => {
 	const { isAuthenticated, checkAuth } = useAuthStore();
 
 	console.log('isAuthenticated', isAuthenticated);
-	useEffect(() => {
+	useLayoutEffect(() => {
 		checkAuth();
 	}, []);
 

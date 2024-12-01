@@ -68,7 +68,7 @@ export default function MainLayout() {
 	return (
 		<div className="flex flex-col items-center h-screen font-pre">
 			<div className="min-w-[370px] max-w-[480px] w-full h-full">
-				{!hideHeaderAndFooter && <Header />}
+				{!hideHeaderAndFooter && !location.pathname.includes('home/roadmap') && <Header />}
 				<div
 					className={`flex-1 overflow-y-auto w-full h-full scrollbar-hide bg-theme-lightgray ${
 						!hideHeaderAndFooter ? 'pb-[60px]' : ''
