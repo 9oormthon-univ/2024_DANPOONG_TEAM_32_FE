@@ -2,19 +2,20 @@ import { useNavigate } from 'react-router-dom';
 
 import { roadmapCategory } from '@constants/roadmapCategory';
 
-import PrevBtn from '@assets/svg/prev.svg?react';
+import IconArrowLeft from '@assets/svg/arrow-left.svg?react';
 import Category from '@pages/home/_components/Category';
 import UnderlineText from '@components/UnderlineText';
+import PageContainer from '@components/PageContainer';
 
 export default function RoadMap() {
 	const navigate = useNavigate();
 
 	return (
 		<div className="w-full h-full">
-			<div className="max-w-[388px] mx-auto pb-20">
-				<div className="bg-white m-3 mt-8 h-15 cursor-pointer" onClick={() => navigate(-1)}>
-					<PrevBtn className="w-[20px] h-[20px]" />
-				</div>
+			<div className="flex bg-white px-5 pt-8 pb-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
+				<IconArrowLeft className="w-[20px] h-[20px]" />
+			</div>
+			<PageContainer>
 				<div className="flex flex-col text-center font-medium my-10 mb-14">
 					<h2 className="text-2xl text-black">테마별로 정리한</h2>
 					<h2 className="text-2xl text-black">
@@ -27,7 +28,7 @@ export default function RoadMap() {
 						<Category key={index} title={category.title} items={category.items} />
 					))}
 				</div>
-			</div>
+			</PageContainer>
 		</div>
 	);
 }

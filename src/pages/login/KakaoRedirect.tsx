@@ -16,5 +16,5 @@ export default function KakaoRedirect() {
 		}
 	}, []);
 
-	return <div>KakaoRedirect</div>;
+	return <div></div>;
 }

@@ -28,6 +28,9 @@ export default function MainLayout() {
 	const [prevPath, setPrevPath] = useState(location.pathname);
 
 	useEffect(() => {
+		// 페이지 변경 시 스크롤을 맨 위로
+		window.scrollTo(0, 0);
+
 		// 이전 경로 저장
 		setPrevPath(location.pathname);
 		// 페이지 깊이 계산
@@ -65,7 +68,7 @@ export default function MainLayout() {
 	return (
 		<div className="flex flex-col items-center h-screen font-pre">
 			<div className="min-w-[370px] max-w-[480px] w-full h-full">
-				{!hideHeaderAndFooter && <Header />}
+				{!hideHeaderAndFooter && !location.pathname.includes('home/roadmap') && <Header />}
 				<div
 					className={`flex-1 overflow-y-auto w-full h-full scrollbar-hide bg-theme-lightgray ${
 						!hideHeaderAndFooter ? 'pb-[60px]' : ''

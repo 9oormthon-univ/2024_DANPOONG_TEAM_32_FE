@@ -39,7 +39,7 @@ export default function Dictionary() {
 		<PageContainer>
 			<div className="flex flex-col items-center gap-8">
 				<div className="flex flex-col items-center">
-					<div className="flex flex-col text-center text-2xl pt-8">
+					<div className="flex flex-col text-center text-2xl pt-10">
 						<div>궁금했던 용어,</div>
 						<div>유맵이 다 알려드릴게요!</div>
 					</div>
@@ -52,7 +52,7 @@ export default function Dictionary() {
 					<SearchBar type="" />
 				</div>
 			</div>
-			<div className="border border-theme-gray drop-shadow-md bg-white rounded-3xl px-5 py-4">
+			<div className="border border-theme-gray drop-shadow-md bg-white rounded-3xl mt-4 px-5 py-4">
 				{MENU_ITEMS.map((item) => (
 					<div
 						key={item.route}
