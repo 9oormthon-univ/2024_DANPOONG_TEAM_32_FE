@@ -51,6 +51,10 @@ const useAuthStore = create<AuthStoreType>((set) => ({
 			if (Kakao.Auth.getAccessToken()) {
 				await Kakao.Auth.logout();
 			}
+
+			localStorage.removeItem('accessToken');
+			localStorage.removeItem('username');
+
 			// await ky.post('/logout');
 			set({ username: '', accessToken: '', isAuthenticated: false });
 		} catch (error) {
