@@ -4,10 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from '@components/Spinner';
 import useCreateCardInfoStore from '@stores/useCreateCardInfoStore';
 
-export default function LoadingScreen() {
+export default function SelectLoading() {
 	const navigate = useNavigate();
-
-	// 불필요한 연산 방지
 
 	const [loading, setLoading] = useState(true);
 
@@ -29,14 +27,14 @@ export default function LoadingScreen() {
 	}, [navigate]);
 
 	return (
-		<div className="flex flex-col items-center justify-center h-full bg-white px-4 mt-36">
-			<div className="flex flex-col text-center font-medium mb-52">
+		<div className="relative flex flex-col items-center w-full h-full bg-white px-4 pt-36">
+			<div className="flex flex-col text-center font-medium h-full">
 				<h2 className="text-3xl text-black">
 					<span className="underline decoration-[#CFEEF0] decoration-[11px] underline-offset-[-7px]">복지카드를</span>
 				</h2>
 				<h2 className="text-3xl text-black">고르는 중이에요..</h2>
 			</div>
-			{loading && <Spinner />}
+			<div className="pt-52 h-screen">{loading && <Spinner />}</div>
 		</div>
 	);
 }
