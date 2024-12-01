@@ -3,8 +3,11 @@ import IconMan from '@assets/svg/man.svg?react';
 import IconEditProfile from '@assets/svg/edit-profile.svg?react';
 import PageNavbar from '@components/PageNavbar';
 import PageContainer from '@components/PageContainer';
+import useAuthStore from '@stores/useAuthStore';
 
 export default function PrivacyAndSecurity() {
+	const { kakaoLogout } = useAuthStore();
+
 	return (
 		<PageContainer>
 			<PageNavbar icon={<IconKey />} title="개인정보 및 보안" />
@@ -47,6 +50,9 @@ export default function PrivacyAndSecurity() {
 					</p>
 					<p className="text-[#A3ADB7] text-sm mt-4">- 복지 카드 발급 이후 일괄 삭제될 예정</p>
 				</div>
+			</div>
+			<div onClick={() => kakaoLogout()} className="pt-2 text-right underline text-[#A3ADB7]">
+				로그아웃
 			</div>
 		</PageContainer>
 	);
