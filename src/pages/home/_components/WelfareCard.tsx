@@ -11,9 +11,9 @@ import { div } from 'motion/react-client';
 const welfareItems = [
 	{ title: '일자리', element: <IconWelfare1 className="w-full h-full" />, url: '/welfare/job' },
 	{ title: '주거', element: <IconWelfare2 className="w-full h-full" />, url: '/welfare/house' },
-	{ title: '참여/권리', element: <IconWelfare3 className="w-full h-full" />, url: '/welfare/participation' },
+	{ title: '참여·권리', element: <IconWelfare3 className="w-full h-full" />, url: '/welfare/participation' },
 	{ title: '교육', element: <IconWelfare4 className="w-full h-full" />, url: '/welfare/education' },
-	{ title: '복지/문화', element: <IconWelfare5 className="w-full h-full" />, url: '/welfare/culture' },
+	{ title: '복지·문화', element: <IconWelfare5 className="w-full h-full" />, url: '/welfare/culture' },
 	{ title: '한번에 보기', element: <IconWelfare6 className="w-full h-full" />, url: '/welfare/all' },
 ];
 
