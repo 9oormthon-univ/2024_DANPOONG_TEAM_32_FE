@@ -66,12 +66,12 @@ export default function MainLayout() {
 	} as const;
 
 	return (
-		<div className="flex flex-col items-center h-screen font-pre">
+		<div className="flex flex-col items-center h-screen overflow-y-hidden overscroll-none font-pre">
 			<div className="min-w-[370px] max-w-[480px] w-full h-full">
 				{!hideHeaderAndFooter && !location.pathname.includes('home/roadmap') && <Header />}
 				<div
 					className={`flex-1 overflow-y-auto w-full h-full scrollbar-hide bg-theme-lightgray ${
-						!hideHeaderAndFooter ? 'pb-[60px]' : ''
+						!hideHeaderAndFooter ? 'pb-[68px]' : ''
 					}`}>
 					{shouldAnimate ? (
 						<AnimatePresence mode="wait" custom={getAnimationDirection()}>
