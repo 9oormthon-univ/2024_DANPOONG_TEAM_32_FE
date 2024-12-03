@@ -58,7 +58,7 @@ export default function MyPage() {
 							<IconWrapper className="mr-6">
 								<IconMailbox />
 							</IconWrapper>
-							<div className="font-bold">공지</div>
+							<div className="font-medium">공지</div>
 						</div>
 						<IconWrapper>
 							<IconArrowRight />
@@ -71,7 +71,7 @@ export default function MyPage() {
 							<IconWrapper className="mr-6">
 								<IconWand />
 							</IconWrapper>
-							<div className="font-bold">가이드북</div>
+							<div className="font-medium">가이드북</div>
 						</div>
 						<IconWrapper>
 							<IconArrowRight />
@@ -84,7 +84,7 @@ export default function MyPage() {
 							<IconWrapper className="mr-6">
 								<IconKey />
 							</IconWrapper>
-							<div className="font-bold">개인정보 및 보안</div>
+							<div className="font-medium">개인정보 및 보안</div>
 						</div>
 						<IconWrapper>
 							<IconArrowRight />
