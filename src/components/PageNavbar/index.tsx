@@ -7,7 +7,7 @@ interface PageNavbarProps {
 	title: string;
 }
 
-export default function PageNavbar({ icon, title }: PageNavbarProps) {
+export default function PageNavbar({ icon = '', title }: PageNavbarProps) {
 	const navigate = useNavigate();
 
 	return (
@@ -17,7 +17,7 @@ export default function PageNavbar({ icon, title }: PageNavbarProps) {
 			</div>
 
 			{icon !== '' && <div className="flex justify-center items-center pb-1 pr-2">{icon}</div>}
-			<div className="flex items-center text-xl font-medium">{title}</div>
+			<div className="flex items-center text-xl font-semibold">{title}</div>
 		</div>
 	);
 }
