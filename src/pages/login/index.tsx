@@ -142,7 +142,7 @@ export default function Login() {
 	return (
 		<div {...handlers} className="flex flex-col items-center justify-between h-screen bg-gray-50">
 			{/* Center Content */}
-			<div className="flex flex-col items-center">
+			<div className="flex flex-col items-center pb-32">
 				<div className="flex justify-center overflow-x-hidden">
 					<div
 						className="flex transition-transform duration-500 ease-in-out"
