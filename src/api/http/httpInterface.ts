@@ -51,4 +51,14 @@ export class HttpInterface {
 	async getWelfareByCategory(params: { policy_id: number }) {
 		return this.apiClient.get(`policy/recommend?cardNum=${params.policy_id}`);
 	}
+
+	async postCreateWelfarePass(params: {
+		birthDate: string;
+		educationStatus: string;
+		employmentStatus: string;
+		baseInfo: string;
+		interestTopic: string;
+	}) {
+		return this.apiClient.post('policy/path', params);
+	}
 }
