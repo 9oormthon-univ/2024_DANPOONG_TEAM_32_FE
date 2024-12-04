@@ -28,7 +28,7 @@ export default function SubRegionSelect() {
 	};
 
 	return (
-		<div className="w-full h-full">
+		<div className="w-full h-full flex flex-col">
 			<div className="bg-white px-5 pt-8 pb-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
 				<IconMyLocation className="w-[20px] h-[20px]" />
 			</div>
@@ -39,7 +39,8 @@ export default function SubRegionSelect() {
 						<UnderlineText text="세부지역" />을 선택해주세요!
 					</h2>
 				</div>
-				<div className={`transition-opacity duration-500 w-full max-h-full overflow-y-scroll scrollbar-hide`}>
+				<div
+					className={`transition-opacity duration-500 w-full max-h-[calc(100vh-330px)] overflow-y-scroll scrollbar-hide`}>
 					{/** 스크롤 가능한 지역 리스트 */}
 					<div className="grid grid-cols-1 gap-4 scrollbar-hide">
 						{subRegions.map((subRegion) => (

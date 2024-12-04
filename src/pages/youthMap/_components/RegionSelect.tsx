@@ -24,7 +24,7 @@ export default function RegionSelect() {
 	};
 
 	return (
-		<div className="h-full w-full">
+		<div className="h-full w-full flex flex-col">
 			<div className="bg-white px-5 pt-8 pb-5 h-15 cursor-pointer" onClick={() => navigate(-1)}>
 				<IconMyLocation className="w-[20px] h-[20px]" />
 			</div>
@@ -46,6 +46,7 @@ export default function RegionSelect() {
 									: 'bg-white text-black border border-theme-border' // 기본 상태
 							}`}>
 							{region}
+							{region === '경기' && <div className="text-xs text-gray-500">인천 포함</div>}
 						</button>
 					))}
 				</div>
