@@ -15,6 +15,18 @@ import CloseBtnIcon from '@assets/svg/close-btn.svg?react';
 import DevelopingIcon from '@assets/svg/tool.svg?react';
 import OnboardingFinishIcon from '@assets/svg/pangpare.svg?react';
 import KakaoIcon from '@assets/svg/kakao.svg?react';
+import WelfarePassStartup from '@assets/svg/welfare-card-startup.svg?react';
+import WelfarePassHome from '@assets/svg/welfare-card-home.svg?react';
+import WelfarePassStudy from '@assets/svg/welfare-card-study.svg?react';
+import WelfarePassActive from '@assets/svg/welfare-card-active.svg?react';
+import WelfarePassCareer from '@assets/svg/welfare-card-career.svg?react';
+import WelfarePassCommunity from '@assets/svg/welfare-card-community.svg?react';
+import WelfarePassCulture from '@assets/svg/welfare-card-culture.svg?react';
+import WelfarePassFairWork from '@assets/svg/welfare-card-fair-work.svg?react';
+import WelfarePassRights from '@assets/svg/welfare-card-rights.svg?react';
+import WelfarePassRest from '@assets/svg/welfare-pass-rest.svg?react';
+import WelfarePassAlone from '@assets/svg/welfare-pass-alone.svg?react';
+
 const iconMap = {
 	DollarIcon,
 	CityIcon,
@@ -33,6 +45,17 @@ const iconMap = {
 	DevelopingIcon,
 	OnboardingFinishIcon,
 	KakaoIcon,
+	WelfarePassStartup,
+	WelfarePassHome,
+	WelfarePassStudy,
+	WelfarePassActive,
+	WelfarePassCareer,
+	WelfarePassCommunity,
+	WelfarePassCulture,
+	WelfarePassFairWork,
+	WelfarePassRights,
+	WelfarePassRest,
+	WelfarePassAlone,
 	// svg 파일 추가..
 } as const;
 
