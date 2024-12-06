@@ -1,20 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import useNetwork from '@stores/networkStore';
-import { WelfareDataType } from '@type/welfareData.type';
+import { WelfareDetailDataType } from '@type/welfareDetailData.type';
 
 interface ResponseType {
-	data: WelfareDataType[];
+	data: WelfareDetailDataType;
 	message: string;
 	statusCode: number;
 }
 
-export const useFetchWelfareByCardId = (policy_id: number) => {
+export const useFetchWelfareById = (policy_id: number) => {
 	const httpInterface = useNetwork((state) => state.httpInterface);
 
 	const { data, isLoading, isError, refetch } = useQuery<ResponseType>({
-		queryKey: ['welfare-by-card-id', policy_id],
-		queryFn: () => httpInterface.getWelfareByCategory({ policy_id }),
-		enabled: policy_id !== undefined,
+		queryKey: ['welfare-by-id', policy_id],
+		queryFn: () => httpInterface.getWelfareById({ policy_id }),
+		enabled: true,
 	});
 
 	return { data: data, isLoading, isError, refetch };
