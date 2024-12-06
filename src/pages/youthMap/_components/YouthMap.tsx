@@ -231,7 +231,9 @@ export default function YouthMap() {
 
 								<Button
 									text="전체 사업 확인하기"
-									onClick={() => {}}
+									onClick={() => {
+										navigate('/welfare-card');
+									}}
 									className="!relative bg-white !text-[#BBBBBB] shadow-none hover:bg-white"
 								/>
 							</div>
