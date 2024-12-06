@@ -9,6 +9,8 @@ interface GridViewProps {
 }
 
 export default function GridView({ cards, setGridView, setId, setIndex }: GridViewProps) {
+	console.log(cards);
+
 	return (
 		<>
 			{cards.map((card, index) => (
