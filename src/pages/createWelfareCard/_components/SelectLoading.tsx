@@ -2,29 +2,29 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Spinner from '@components/Spinner';
-import useCreateCardInfoStore from '@stores/useCreateCardInfoStore';
+import { useCreateWelfarePass } from '@hooks/createWelfarepass/useCreateWelfarePass';
 
 export default function SelectLoading() {
 	const navigate = useNavigate();
+	const { data, isLoading, isError } = useCreateWelfarePass();
 
 	const [loading, setLoading] = useState(true);
 
-	const { birth, education, employ, basic, interest } = useCreateCardInfoStore();
-	console.log(birth, education, employ, basic, interest);
-
 	useEffect(() => {
 		const fetchData = async () => {
-			const startTime = Date.now();
-
 			// 2초 후에 다음 페이지로 이동
+
 			setTimeout(() => {
 				setLoading(false);
-				navigate('/create-welfare-card/result', { replace: true });
+				navigate('/create-welfare-card/result', {
+					replace: true,
+					state: { policyPathNum: data?.data.policyPathNum },
+				});
 			}, 2000);
 		};
 
 		fetchData();
-	}, [navigate]);
+	}, [navigate, data]);
 
 	return (
 		<div className="relative flex flex-col items-center w-full h-full bg-white px-4 pt-36">
