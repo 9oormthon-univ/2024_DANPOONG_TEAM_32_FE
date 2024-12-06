@@ -65,4 +65,8 @@ export class HttpInterface {
 	async getWelfarePass() {
 		return this.apiClient.get('policy/path');
 	}
+
+	async getWelfareById(params: { policy_id: number }) {
+		return this.apiClient.get(`policy/${params.policy_id}`);
+	}
 }
