@@ -33,7 +33,7 @@ function WelfareRecommendCard({ policyId, policyName, ageInfo }: WelfareRecommen
 					<div className="w-6 h-6 flex justify-center items-center mr-1">
 						<IconStarInactive className="w-[18px] h-[18px]" />
 					</div>
-					<div>{policyName}</div>
+					<div className="font-medium">{policyName}</div>
 				</div>
 				<div className="flex">
 					<div className="border rounded-xl px-1 py-0.5 text-xs bg-[#4B628A] text-white">{ageInfo}</div>
