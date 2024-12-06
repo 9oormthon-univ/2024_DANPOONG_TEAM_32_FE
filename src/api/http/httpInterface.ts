@@ -61,4 +61,8 @@ export class HttpInterface {
 	}) {
 		return this.apiClient.post('policy/path', params);
 	}
+
+	async getWelfarePass() {
+		return this.apiClient.get('policy/path');
+	}
 }

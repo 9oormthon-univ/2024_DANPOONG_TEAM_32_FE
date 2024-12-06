@@ -20,7 +20,7 @@ export default function CardResult() {
 
 	useEffect(() => {
 		if (policyPathNum !== undefined) {
-			setCreatedPass(welfarePass[policyPathNum]);
+			setCreatedPass(welfarePass[policyPathNum - 1]);
 		}
 	}, [policyPathNum]);
 
@@ -33,7 +33,6 @@ export default function CardResult() {
 					</span>
 				</h2>
 				{createdPass && <div className="w-[285px] h-[433px] mt-12 animate-floating">{createdPass.element}</div>}
-				{policyPathNum && <p>정책 경로 번호: {policyPathNum}</p>}
 				<Button
 					text="관련 복지 확인하기"
 					onClick={() => navigate('/welfare-card')}
