@@ -140,22 +140,22 @@ export default function Login() {
 	}, [currentSlide]);
 
 	return (
-		<div {...handlers} className="flex flex-col items-center justify-between h-screen bg-gray-50">
+		<div {...handlers} className="flex flex-col items-center justify-between w-full bg-gray-50">
 			{/* Center Content */}
-			<div className="flex flex-col items-center pb-32">
+			<div className="flex flex-col items-center pb-28">
 				<div className="flex justify-center overflow-x-hidden">
 					<div
 						className="flex transition-transform duration-500 ease-in-out"
 						style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
 						{slides.map((slide, index) => (
 							<div key={index} className="min-w-full flex justify-center items-center pointer-events-none">
-								<img src={slide} />
+								<img className="object-cover object-bottom w-full h-[420px]" src={slide} />
 							</div>
 						))}
 					</div>
 				</div>
 				{/* 슬라이드 인디케이터 */}
-				<div className="flex space-x-2 my-5">
+				<div className="flex space-x-2 my-4">
 					{slides.map((_, index) => (
 						<div
 							key={index}
@@ -164,7 +164,7 @@ export default function Login() {
 				</div>
 				{/* 슬라이드 내용 */}
 
-				<h1 className="text-2xl font-medium text-theme-main my-2 font-yangjin">{slideContents[currentSlide].title}</h1>
+				<h1 className="text-2xl font-medium text-theme-main mb-2 font-yangjin">{slideContents[currentSlide].title}</h1>
 				{slideContents[currentSlide].paragraphs}
 			</div>
 			<Button
