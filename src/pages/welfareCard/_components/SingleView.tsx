@@ -36,7 +36,7 @@ function WelfareRecommendCard({ policyId, policyName, ageInfo }: WelfareRecommen
 					<div className="font-medium">{policyName}</div>
 				</div>
 				<div className="flex">
-					<div className="border rounded-xl px-1 py-0.5 text-xs bg-[#4B628A] text-white">{ageInfo}</div>
+					<div className="border rounded-xl py-1 px-1.5 text-xs bg-[#4B628A] text-white">{ageInfo}</div>
 				</div>
 			</div>
 		</div>
@@ -105,7 +105,7 @@ export default function SingleView({
 	return (
 		<>
 			<PageContainer>
-				<div className="relative w-full flex justify-between items-center pt-2">
+				<div className="relative w-full flex justify-between items-center">
 					<div onClick={handlePrev} className={`pr-1 ${index > 0 ? 'cursor-pointer' : ''}`}>
 						{index > 0 ? <IconArrowLeft className="w-7 h-7" /> : <div className="w-7 h-7" />}
 					</div>
@@ -124,7 +124,7 @@ export default function SingleView({
 						{index < cards.length - 1 ? <IconArrowRight className="w-7 h-7" /> : <div className="w-7 h-7" />}
 					</div>
 				</div>
-				<div className="flex justify-center text-center pt-6 font-bold text-xl">
+				<div className="flex justify-center text-center pt-3 font-bold text-xl">
 					유맵이 {cards[index].name} 서비스를
 					<br />
 					추천해드릴게요!
