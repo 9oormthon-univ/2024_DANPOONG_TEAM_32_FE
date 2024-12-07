@@ -34,7 +34,7 @@ export default function WelfareDetail() {
 
 	return (
 		<PageContainer>
-			<div className="grid gap-5 mb-10">
+			<div className="flex flex-col gap-5 mb-10 break-words">
 				<div className="flex justify-between mt-5">
 					<div className="flex">
 						<div className="flex justify-center items-center w-12 h-12">
