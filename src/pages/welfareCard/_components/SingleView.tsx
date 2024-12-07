@@ -125,7 +125,7 @@ export default function SingleView({
 					</div>
 				</div>
 				<div className="flex justify-center text-center pt-3 font-bold text-xl">
-					유맵이 {cards[index].name} 서비스를
+					유맵이 {cards[index]?.name} 서비스를
 					<br />
 					추천해드릴게요!
 				</div>
