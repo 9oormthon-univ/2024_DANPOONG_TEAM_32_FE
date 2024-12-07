@@ -222,7 +222,7 @@ export default function YouthMap() {
 							</div>
 							<div className="mt-12 flex flex-col items-center">
 								<Button
-									text="내 복지카드 확인하러 가기"
+									text="내 복지패스 확인하러 가기"
 									onClick={() => {
 										navigate('/create-welfare-card/select-birth');
 									}}
