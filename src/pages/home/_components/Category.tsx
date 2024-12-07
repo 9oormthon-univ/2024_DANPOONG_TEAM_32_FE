@@ -1,5 +1,6 @@
 import Card from './Card';
 import { IconName } from '@components/Icon';
+import IconBar from '@assets/svg/bar.svg?react';
 
 interface CategoryProps {
 	title: string;
@@ -13,7 +14,7 @@ export default function Category({ title, items }: CategoryProps) {
 
 			<h2 className="text-[19px] font-bold ">{title}</h2>
 
-			<hr className="w-[80%] my-5 border-theme-main" />
+			<IconBar className="w-[80%] mt-2 mb-5" />
 			{/* Item List */}
 			<div className="grid grid-cols-3 gap-4 w-[95%]">
 				{items.map((item, index) => (

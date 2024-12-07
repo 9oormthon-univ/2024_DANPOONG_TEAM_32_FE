@@ -30,7 +30,7 @@ export default function SelectLoading() {
 		<div className="relative flex flex-col items-center w-full h-full bg-white px-4 pt-36">
 			<div className="flex flex-col text-center font-medium h-full">
 				<h2 className="text-3xl text-black">
-					<span className="underline decoration-[#CFEEF0] decoration-[11px] underline-offset-[-7px]">복지카드를</span>
+					<span className="underline decoration-[#CFEEF0] decoration-[11px] underline-offset-[-7px]">복지패스를</span>
 				</h2>
 				<h2 className="text-3xl text-black">고르는 중이에요..</h2>
 			</div>
