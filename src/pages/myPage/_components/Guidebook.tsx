@@ -7,10 +7,10 @@ export default function GuideBook() {
 		<PageContainer>
 			<PageNavbar icon={<IconWand />} title="가이드북" />
 			<div className="flex flex-col pt-10">
-				<div className="text-xl font-bold pb-2">1. 복지 카드는 무엇인가요?</div>
+				<div className="text-xl font-bold pb-2">1. 복지 패스는 무엇인가요?</div>
 				<p>
-					유스맵에서 제공하는 복지 사업 추천 프로그램을 통해 카드입니다. 해당 카드 정보에 따라서 필요한 청년 지원 사업을
-					추천합니다
+					유스맵에서 제공하는 복지 사업 추천 프로그램을 통한 복지 패스입니다. 해당 카드 정보에 따라서 필요한 청년 지원
+					사업을 추천합니다
 				</p>
 			</div>
 			<div className="flex flex-col pt-10">
