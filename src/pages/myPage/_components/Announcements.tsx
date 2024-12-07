@@ -26,7 +26,7 @@ export default function Announcements() {
 			</div>
 			<div className="flex flex-col pt-10">
 				<div className="text-xl font-bold pb-2">3. 수집한 위치 정보</div>
-				<p>복지 카드 발급 이후 일괄 삭제될 예정</p>
+				<p>복지 패스 발급 이후 일괄 삭제될 예정</p>
 			</div>
 		</PageContainer>
 	);

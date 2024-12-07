@@ -25,7 +25,7 @@ export default function CardResult() {
 	}, [policyPathNum]);
 
 	return (
-		<div className="flex flex-col items-center justify-center h-full bg-white px-4 pt-36">
+		<div className="flex flex-col items-center justify-center h-full bg-white px-4 pt-16">
 			<div className="flex flex-col items-center text-center font-medium mb-52">
 				<h2 className="text-3xl text-black">
 					<span className="underline decoration-[#CFEEF0] decoration-[11px] underline-offset-[-7px]">
