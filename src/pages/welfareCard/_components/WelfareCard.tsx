@@ -91,10 +91,6 @@ export default function WelfareCard() {
 		animate: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 120, damping: 20 } },
 	};
 
-	if (loading) {
-		return <PageContainer>Loading...</PageContainer>;
-	}
-
 	console.log(cards);
 
 	return (
