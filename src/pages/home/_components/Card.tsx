@@ -10,8 +10,7 @@ interface CardProps {
 export default function Card({ icon, title, bgColor }: CardProps) {
 	const [firstLine, secondLine] = title.split('\n'); // Use '\n' for custom split
 	return (
-		<div
-			className={`relative flex items-center justify-center w-[95px] h-[92px] rounded-[10px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${bgColor}`}>
+		<div className={`relative flex items-center justify-center w-[95px] h-[92px] rounded-[10px] ${bgColor}`}>
 			{/* 타이틀 */}
 			<div className="absolute top-2 left-2 text-[12px] font-bold text-gray-800">
 				<p>{firstLine}</p>
