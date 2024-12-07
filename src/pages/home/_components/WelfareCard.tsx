@@ -24,7 +24,7 @@ export default function WelfareCard() {
 		<div className="w-full relative flex flex-col items-center">
 			<div className="font-bold text-xl mb-2 self-start pl-2">전체 복지서비스</div>
 
-			<div className="w-full grid grid-cols-3 gap-2 p-3 rounded-3xl">
+			<div className="w-full grid grid-cols-3 gap-3 rounded-3xl">
 				{welfareItems.map((item, index) => (
 					<div
 						key={index}
