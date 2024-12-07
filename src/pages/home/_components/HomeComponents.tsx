@@ -5,7 +5,7 @@ import WelfareCard from '@pages/home/_components/WelfareCard';
 export default function HomeComponents() {
 	return (
 		<PageContainer>
-			<div className="flex flex-col px-2.5 mt-5 gap-3">
+			<div className="flex flex-col px-3.5 mt-5 gap-3">
 				{/* 로드맵 카드 */}
 				<LoadmapCard />
 
