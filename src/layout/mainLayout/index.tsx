@@ -86,7 +86,17 @@ export default function MainLayout() {
 							</motion.div>
 						</AnimatePresence>
 					) : (
-						<Outlet />
+						<AnimatePresence mode="wait">
+							<motion.div
+								className="h-full"
+								key={location.pathname}
+								initial="init"
+								animate="animate"
+								exit="exit"
+								variants={AppAni}>
+								<Outlet />
+							</motion.div>
+						</AnimatePresence>
 					)}
 				</div>
 				{!hideHeaderAndFooter && <Footer />}
