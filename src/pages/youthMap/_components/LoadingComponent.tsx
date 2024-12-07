@@ -26,7 +26,7 @@ export default function LoadingScreen() {
 				console.error('Failed to fetch Kakao API:', error);
 			} finally {
 				const elapsedTime = Date.now() - startTime;
-				const remainingTime = Math.max(2000 - elapsedTime, 0);
+				const remainingTime = Math.max(800 - elapsedTime, 0);
 				setTimeout(() => {
 					setLoading(false);
 					navigate('/youth-map/map', { replace: true });

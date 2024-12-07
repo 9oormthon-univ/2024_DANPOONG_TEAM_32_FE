@@ -20,7 +20,7 @@ export default function SelectLoading() {
 					replace: true,
 					state: { policyPathNum: data?.data.policyPathNum },
 				});
-			}, 2000);
+			}, 1200);
 		};
 
 		fetchData();
