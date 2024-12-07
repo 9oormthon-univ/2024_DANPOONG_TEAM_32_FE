@@ -65,7 +65,7 @@ export default function Login() {
 					<p className="text-center mt-3 text-gray-600 leading-relaxed">
 						나만의 <UnderlineText text="복지 MBTI 검사" />를 통해
 						<br />
-						복지카드를 발급받을 수도 있답니다!
+						복지패스를 발급받을 수도 있답니다!
 					</p>
 				</>
 			),
@@ -88,16 +88,16 @@ export default function Login() {
 			),
 		},
 		{
-			title: '나만의 복지카드',
+			title: '나만의 복지패스',
 			paragraphs: (
 				<>
 					<p className="text-center text-gray-600 leading-relaxed">
-						유스맵에서 발급받은 복지카드를
+						유스맵에서 발급받은 복지패스를
 						<br />
 						<UnderlineText text="한눈에 보고 관리" />할 수 있어요!
 					</p>
 					<p className="text-center mt-3 text-gray-600 leading-relaxed">
-						복지 카드로 손쉽게 <UnderlineText text="내가 원하는 복지만" />
+						복지 패스로 손쉽게 <UnderlineText text="내가 원하는 복지만" />
 						<br />
 						쏙쏙 골라 볼 수 있어요!
 					</p>
@@ -149,7 +149,7 @@ export default function Login() {
 						style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
 						{slides.map((slide, index) => (
 							<div key={index} className="min-w-full flex justify-center items-center pointer-events-none">
-								<img className="object-cover object-bottom w-full h-[420px]" src={slide} />
+								<img className="object-cover object-bottom w-full h-[440px]" src={slide} />
 							</div>
 						))}
 					</div>
