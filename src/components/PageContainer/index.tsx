@@ -5,5 +5,5 @@ interface PageConatinerPrpps {
 }
 
 export default function PageContainer({ children }: PageConatinerPrpps) {
-	return <div className="h-full w-full px-6 pb-4 overflow-y-scroll scrollbar-hide">{children}</div>;
+	return <div className="h-full w-full px-6 pb-20 overflow-y-scroll scrollbar-hide">{children}</div>;
 }

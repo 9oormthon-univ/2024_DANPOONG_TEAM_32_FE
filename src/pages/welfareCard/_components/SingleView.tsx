@@ -129,17 +129,17 @@ export default function SingleView({
 					<br />
 					추천해드릴게요!
 				</div>
-			</PageContainer>
-			<div className="overflow-x-scroll">
-				<div className="flex gap-4">
-					{!isLoading &&
-						data.data.map(({ policyId, policyName, ageInfo }) => (
-							<div key={policyId}>
-								<WelfareRecommendCard policyId={policyId} policyName={policyName} ageInfo={ageInfo} />
-							</div>
-						))}
+				<div className="overflow-x-scroll pt-2">
+					<div className="flex gap-4">
+						{!isLoading &&
+							data.data.map(({ policyId, policyName, ageInfo }) => (
+								<div key={policyId}>
+									<WelfareRecommendCard policyId={policyId} policyName={policyName} ageInfo={ageInfo} />
+								</div>
+							))}
+					</div>
 				</div>
-			</div>
+			</PageContainer>
 		</>
 	);
 }
